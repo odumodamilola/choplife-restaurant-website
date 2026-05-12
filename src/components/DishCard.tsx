@@ -5,9 +5,16 @@ import { MenuItem } from '../types';
 
 interface DishCardProps {
   item: MenuItem;
+<<<<<<< HEAD
 }
 
 const DishCard: React.FC<DishCardProps> = ({ item }) => {
+=======
+  onSelect: () => void;
+}
+
+const DishCard: React.FC<DishCardProps> = ({ item, onSelect }) => {
+>>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHashTarget, setIsHashTarget] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
@@ -63,6 +70,10 @@ const DishCard: React.FC<DishCardProps> = ({ item }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
+<<<<<<< HEAD
+=======
+      onClick={onSelect}
+>>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
       className={`
         relative group overflow-hidden bg-surface border rounded-3xl transition-all duration-500
         ${isHashTarget ? 'border-primary ring-4 ring-primary/20 shadow-[0_0_60px_rgba(227,30,36,0.2)] scale-[1.02]' : 'border-border hover:border-primary/40 shadow-2xl'}
@@ -71,11 +82,20 @@ const DishCard: React.FC<DishCardProps> = ({ item }) => {
     >
       <div 
         style={{ transform: isTouch ? "none" : "translateZ(30px)" }}
+<<<<<<< HEAD
         className="aspect-[4/3] lg:aspect-square xl:aspect-[4/3] overflow-hidden relative"
       >
         <img 
           src={item.image || 'https://images.unsplash.com/photo-1546767062-f8486dbc150a?w=800&q=80&auto=format'} 
           alt={item.name}
+=======
+        className="aspect-[4/3] lg:aspect-square xl:aspect-[4/3] overflow-hidden relative bg-muted"
+      >
+        <img 
+          src={item.image ? `${item.image}&w=600&q=75` : 'https://images.unsplash.com/photo-1546767062-f8486dbc150a?w=600&q=75&auto=format'} 
+          alt={item.name}
+          loading="lazy"
+>>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
           className="w-full h-full object-cover grayscale-[0.2] transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
@@ -116,7 +136,14 @@ const DishCard: React.FC<DishCardProps> = ({ item }) => {
             <div key={i} className="w-1 lg:w-1.5 h-1 lg:h-1.5 rounded-full bg-primary/20" />
           ))}
         </div>
+<<<<<<< HEAD
         <button className="flex items-center gap-2 lg:gap-3 font-display text-[9px] lg:text-[11px] font-bold tracking-[0.2em] uppercase text-muted hover:text-foreground transition-all group/btn">
+=======
+        <button 
+          onClick={(e) => { e.stopPropagation(); onSelect(); }}
+          className="flex items-center gap-2 lg:gap-3 font-display text-[9px] lg:text-[11px] font-bold tracking-[0.2em] uppercase text-muted hover:text-foreground transition-all group/btn"
+        >
+>>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
           DETAILED SPECS
           <Plus size={14} className="group-hover/btn:rotate-90 transition-transform text-primary" />
         </button>
