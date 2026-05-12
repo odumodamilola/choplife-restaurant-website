@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-bebas: "Bebas Neue", cursive;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --spacing-container: clamp(1rem, 5vw, 4rem);
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --surface: #fafafa;
+    --surface-soft: #f4f4f5;
+    --primary: #e31e24;
+    --primary-dark: #b01419;
+    --accent: #f5a623;
+    --border: #e4e4e7;
+    --muted: #71717a;
+    --muted-foreground: #a1a1aa;
+    
+    --fluid-320-1920: clamp(1rem, 0.8rem + 1vw, 2.5rem);
+  }
+
+  .dark {
+    --background: #09090b;
+    --foreground: #fafafa;
+    --surface: #0c0c0e;
+    --surface-soft: #18181b;
+    --border: #27272a;
+    --muted: #a1a1aa;
+    --muted-foreground: #52525b;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary selection:text-white overflow-x-hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    cursor: none;
+  }
+
+  /* Fluid Headings */
+  h1 { @apply font-bebas text-[clamp(4rem,15vw,12rem)] leading-[0.85] tracking-tighter; }
+  h2 { @apply font-bebas text-[clamp(2.5rem,8vw,6rem)] leading-[0.9]; }
+  h3 { @apply font-display font-bold text-[clamp(1.25rem,4vw,2.5rem)] leading-tight; }
+
+  .cursor-dot {
+    @apply fixed w-3 h-3 bg-primary rounded-full pointer-events-none z-[99999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-200;
+  }
+
+  .cursor-ring {
+    @apply fixed w-10 h-10 border border-primary/40 rounded-full pointer-events-none z-[99998] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out;
+  }
+
+  .noise-overlay {
+    @apply fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .vertical-text {
+    writing-mode: vertical-rl;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px rgba(227, 30, 36, 0.3);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .container-xl {
+    @apply max-w-[1920px] mx-auto px-[var(--spacing-container)];
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+html { scroll-behavior: smooth; }
+
+@media (pointer: coarse) {
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+}
