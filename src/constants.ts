@@ -19,7 +19,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'A rich, nutty classic made from ground melon seeds and leafy greens, simmered with tender proteins and traditional smoked fish for a deep, smoky finish.',
     price: 4000,
     category: 'african-dishes',
-    image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=800&q=80&auto=format',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlGo4VicjjruN1Cjdf1wCWdTMucMfbKFEU6A&s',
     badges: ['⭐ CLASSIC'],
   },
   {
@@ -28,7 +28,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Vibrant West-African Delicacy Featuring Tender Okra Pods Infused with Succulent Shrimp, Fresh Croakerfish, Prawns and Crab Claws Slow-Cooked with Bold Spices.',
     price: 15000,
     category: 'african-dishes',
-    image: 'https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=800&q=80&auto=format',
+    image: '/src/assets/images/seafood-okro.png',
     isFeatured: true,
     badges: ['🔥 LUXE'],
   },
@@ -38,7 +38,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Yoruba cuisine known as Eko special, with vegetables, stock-fish, ponmo, smoked catfish and panla fish.',
     price: 4000,
     category: 'african-dishes',
-    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80&auto=format',
+    image: '/src/assets/images/eforiro.png',
   },
   {
     id: 'edikang-ikong',
@@ -46,7 +46,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Originated among the Efik-Ibibio people of Akwa Ibom & Cross river state, very nutritious and well stocked with Ponmo, Panla, Smoked Catfish and Stock-fish.',
     price: 4000,
     category: 'african-dishes',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80&auto=format',
+    image: '/src/assets/images/edikang-soup.png',
   },
 
   // Rice Class - Page 1 & 4
@@ -56,7 +56,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Bursting with local herbs and soul. This smoky rice dish is mixed with shredded meat and traditional spices that take you straight back to mama\'s kitchen.',
     price: 4000,
     category: 'rice-class',
-    image: 'https://images.unsplash.com/photo-1546061872-a51d46094bc1?w=800&q=80&auto=format',
+    image: '/src/assets/images/traditional-native-rice.png',
   },
   {
     id: 'ofada-rice-sauce',
@@ -64,7 +64,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Pure Nigerian heritage. Earthy local rice served with our legendary "Ayamase" palm oil sauce, loaded with assorted meats and bold peppers.',
     price: 5000,
     category: 'rice-class',
-    image: 'https://images.unsplash.com/photo-1536304993881-ff86e5b6e5bd?w=800&q=80&auto=format',
+    image: '/src/assets/images/traditional-ofada-rice.png',
     badges: ['🌶️ SPICY'],
   },
   {
@@ -73,7 +73,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Iconic jambalaya special rice explodes with the trinity of onions, celery and bell peppers sauteed in spicy sausage and shrimps.',
     price: 17000,
     category: 'rice-class',
-    image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&q=80&auto=format',
+    image: '/src/assets/images/jambalaya-special-rice.png',
     isFeatured: true,
   },
   {
