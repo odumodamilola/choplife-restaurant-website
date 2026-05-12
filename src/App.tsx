@@ -98,7 +98,7 @@ export default function App() {
                           </h2>
                         </div>
                         <div className="hidden md:flex flex-col items-end">
-                          <span className="font-mono text-[10px] lg:text-xs text-muted-foreground mb-4 tracking-[0.2em]">ITEM COUNT / {cat.count.toString().padStart(2, '0')}</span>
+                          <span className="font-mono text-[10px] lg:text-xs text-muted-foreground mb-4 tracking-[0.2em]">/ {cat.count.toString().padStart(2, '0')}</span>
                           <div className="h-[2px] w-24 lg:w-40 bg-gradient-to-r from-primary/40 to-transparent" />
                         </div>
                       </motion.div>
@@ -181,7 +181,7 @@ export default function App() {
                       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-0">
                         <div className="p-10 lg:p-24 border-b lg:border-b-0 lg:border-r border-border">
                           <span className="font-display text-[10px] lg:text-[12px] font-bold tracking-[0.4em] text-accent uppercase block mb-8 lg:mb-12">Visit Us</span>
-                          <h2 className="mb-12 lg:mb-20 uppercase text-foreground">JOIN US FOR <br/> <span className="text-primary italic">DINNER.</span></h2>
+                          <h2 className="mb-12 lg:mb-20 uppercase text-foreground">EXPERIENCE <br/> <span className="text-primary italic">.</span></h2>
                           
                           <div className="flex flex-col gap-10 lg:gap-16 mb-16 lg:mb-24">
                              <div>
@@ -234,7 +234,7 @@ export default function App() {
                         <div className="font-bebas text-6xl lg:text-9xl leading-none mb-6 text-foreground">
                           CHOP<span className="text-primary italic">LIFE.</span>
                         </div>
-                        <p className="text-muted-foreground font-display text-xs lg:text-sm tracking-[0.3em] uppercase">Architecture through flavor.</p>
+                        <p className="text-muted-foreground font-display text-xs lg:text-sm tracking-[0.3em] uppercase">Building taste across borders.</p>
                      </div>
                      
                      <div className="flex flex-col sm:flex-row gap-10 lg:gap-20">

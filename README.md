@@ -1,53 +1,65 @@
 <<<<<<< HEAD
+
 # Choplife Bistro Website
-*A premium static restaurant site built with semantic HTML5, modern CSS3, and vanilla JavaScript.*
+
+_A premium restaurant web app built with React, Vite, and Tailwind CSS._
 
 ---
 
-### ![HTML5](https://img.shields.io/badge/HTML5-🟧-e34f26?logo=html5) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3) ![JavaScript](https://img.shields.io/badge/JS-F7DF1E?logo=javascript) ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+### ![React](https://img.shields.io/badge/React-61DAFB?logo=react) ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript) ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 ---
 
 ## Tech Stack
 
-| Technology | Reason for Choice |
-|------------|-------------------|
-| **HTML5** | Semantic markup improves accessibility, SEO, and provides native structure for the menu, navigation, and content sections. |
-| **CSS3** | Enables advanced UI effects (glassmorphism, custom properties, transitions) without external libraries; guarantees fast style computation. |
-| **Vanilla JavaScript** | Keeps the bundle size zero, leverages native APIs (IntersectionObserver, smooth scrolling) for animation and routing, ensuring instant load times. |
-| **No Build Tools** | Eliminates a build step, making the project completely zero‑dependency—open the `index.html` directly in a browser. |
-| **Responsive Design (Mobile‑First)** | Guarantees optimal experience across phones, tablets, and desktops using fluid layouts and media queries. |
+| Technology                           | Reason for Choice                                                                                               |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| **React**                            | Component-based architecture for reusable UI elements, efficient state management, and smooth page transitions. |
+| **Vite**                             | Lightning-fast dev server and optimized production builds with hot module replacement.                          |
+| **Tailwind CSS**                     | Utility-first CSS framework for rapid UI development, consistent design system, and small bundle size.          |
+| **TypeScript**                       | Type safety and better developer experience with autocomplete and compile-time error checking.                  |
+| **Motion (Framer Motion)**           | Smooth, declarative animations for page transitions and scroll reveals.                                         |
+| **Responsive Design (Mobile‑First)** | Guarantees optimal experience across phones, tablets, and desktops using fluid layouts and media queries.       |
 
 ---
 
 ## Features
 
-- [x] **Custom Animated Cursor** – unique, performant cursor effects using CSS transforms and requestAnimationFrame.  
-- [x] **Sticky Category Navigation** – anchor‑based scroll routing with a persistent navigation bar.  
-- [x] **IntersectionObserver Scroll‑Reveal** – lazy‑load animations for sections as they enter the viewport.  
-- [x] **Glassmorphism UI Components** – frosted‑glass cards and modals built with backdrop‑filter and translucency.  
-- [x] **CSS Custom Properties Design System** – themable colors, spacing, and typography variables.  
-- [x] **Mobile‑First Responsive Layout** – fluid grid and adaptive breakpoints for all devices.  
-- [x] **Full Digital Menu** – 7 categories, 50+ dishes; each dish includes image, description, and price.  
-- [x] **Zero Dependencies** – pure static files; no npm, no bundlers, no runtime server required.  
+- [x] **Custom Animated Cursor** – unique, performant cursor effects using CSS transforms.
+- [x] **Sticky Category Navigation** – anchor‑based scroll routing with a persistent navigation bar.
+- [x] **Scroll‑Reveal Animations** – lazy‑load animations for sections as they enter the viewport.
+- [x] **Glassmorphism UI Components** – frosted‑glass cards and modals built with backdrop‑filter.
+- [x] **Dark/Light Theme Toggle** – user-selectable theme with persistent preferences.
+- [x] **Mobile‑First Responsive Layout** – fluid grid and adaptive breakpoints for all devices.
+- [x] **Full Digital Menu** – 8 categories, 50+ dishes; each dish includes image, description, and price.
+- [x] **Food Details Page** – detailed view for each dish with nutritional information.
 
 ---
 
 ## Project Structure
 
 ```
-choplife-bistro-website/
-├─ assets/
-│  ├─ images/            # Dish photos, UI icons, backgrounds
-│  └─ fonts/             # Optional custom fonts
-├─ css/
-│  ├─ base.css           # Reset, typography, root custom properties
-│  ├─ layout.css         # Grid, flex utilities, responsive breakpoints
-│  └─ components.css     # Glassmorphism cards, navigation, cursor styles
-├─ js/
-│  └─ main.js            # Navigation, cursor, IntersectionObserver logic
-├─ index.html            # Entry point, semantic sections, menu markup
-└─ README.md              # This file
+choplife/
+├─ src/
+│  ├─ assets/
+│  │  └─ images/         # Dish photos, UI icons, backgrounds
+│  ├─ components/
+│  │  ├─ Cursor.tsx       # Custom animated cursor
+│  │  ├─ DetailsPage.tsx # About/Contact page
+│  │  ├─ DishCard.tsx    # Menu item card component
+│  │  ├─ Hero.tsx        # Hero section
+│  │  ├─ Navbar.tsx      # Navigation bar
+│  │  ├─ ThemeToggle.tsx # Theme switcher
+│  │  └─ FoodDetailsPage.tsx # Food detail view
+│  ├─ App.tsx            # Main app component
+│  ├─ constants.ts      # Menu data
+│  ├─ types.ts           # TypeScript interfaces
+│  ├─ index.css          # Tailwind imports & custom styles
+│  └─ main.tsx           # Entry point
+├─ index.html            # HTML entry point
+├─ vite.config.ts        # Vite configuration
+├─ tsconfig.json         # TypeScript configuration
+└─ README.md             # This file
 ```
 
 ---
@@ -64,7 +76,6 @@ choplife-bistro-website/
 2. **Open the site**
 
    Simply open `index.html` in any modern browser—no package manager, no build step:
-
    - Double‑click `index.html`, or
    - Run `start index.html` (Windows) / `open index.html` (macOS) from the terminal.
 
@@ -83,15 +94,15 @@ That’s it! The site will load instantly because it contains only static assets
 
 ## Browser Compatibility
 
-| Browser | Version* | Status |
-|---------|----------|--------|
-| Chrome  | 80+      | ✅ Fully supported |
-| Edge    | 80+      | ✅ Fully supported |
-| Firefox | 78+      | ✅ Fully supported |
-| Safari  | 14+      | ✅ Fully supported |
-| Opera   | 67+      | ✅ Fully supported |
+| Browser | Version\* | Status             |
+| ------- | --------- | ------------------ |
+| Chrome  | 80+       | ✅ Fully supported |
+| Edge    | 80+       | ✅ Fully supported |
+| Firefox | 78+       | ✅ Fully supported |
+| Safari  | 14+       | ✅ Fully supported |
+| Opera   | 67+       | ✅ Fully supported |
 
-*Versions indicate the first release that includes the required APIs (e.g., `backdrop-filter`, `IntersectionObserver`).
+\*Versions indicate the first release that includes the required APIs (e.g., `backdrop-filter`, `IntersectionObserver`).
 
 ---
 
@@ -113,8 +124,8 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for f
 
 ---
 
-*Happy coding and enjoy serving up the Choplife experience!*
-=======
+# _Happy coding and enjoy serving up the Choplife experience!_
+
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
@@ -127,12 +138,11 @@ View your app in AI Studio: https://ai.studio/apps/4fa0ad05-d4db-42bf-83c4-afde6
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js
 
 1. Install dependencies:
    `npm install`
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
+   > > > > > > > 4d9626b973700e92a42fe38f46dc12a8bbae86f3
