@@ -1,3 +1,12 @@
+export interface NutritionalInfo {
+  calories: number;
+  protein: number;
+  carbs: number;
+  fat: number;
+  fiber?: number;
+  sodium?: number;
+}
+
 export interface MenuItem {
   id: string;
   name: string;
@@ -7,6 +16,7 @@ export interface MenuItem {
   image?: string;
   badges?: string[];
   isFeatured?: boolean;
+  nutritionalInfo?: NutritionalInfo;
 }
 
 export interface MenuCategory {

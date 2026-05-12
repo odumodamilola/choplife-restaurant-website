@@ -1,38 +1,14 @@
-<<<<<<< HEAD
 import { useEffect, useState, useRef } from 'react';
-=======
-import { useEffect, useState, useRef, lazy, Suspense } from 'react';
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
 import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import DishCard from './components/DishCard';
-<<<<<<< HEAD
 import DetailsPage from './components/DetailsPage';
-import { MENU_CATEGORIES, MENU_ITEMS } from './constants';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, MapPin, Instagram, Twitter, Linkedin, Youtube, ExternalLink } from 'lucide-react';
-
-export default function App() {
-  const [activeCategory, setActiveCategory] = useState('');
-  const [currentView, setCurrentView] = useState<'home' | 'details'>('home');
-  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-
-  useEffect(() => {
-=======
+import FoodDetailsPage from './components/FoodDetailsPage';
 import { MENU_CATEGORIES, MENU_ITEMS } from './constants';
 import { MenuItem } from './types';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, MapPin, Instagram, Twitter, Linkedin, Youtube, ExternalLink } from 'lucide-react';
-
-const DetailsPage = lazy(() => import('./components/DetailsPage'));
-const FoodDetailsPage = lazy(() => import('./components/FoodDetailsPage'));
-
-const PageLoader = () => (
-  <div className="min-h-[60vh] flex items-center justify-center">
-    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-  </div>
-);
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState('');
@@ -41,11 +17,12 @@ export default function App() {
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentView, selectedItem]);
+    if (selectedItem) {
+      window.scrollTo(0, 0);
+    }
+  }, [selectedItem]);
 
   useEffect(() => {
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -60% 0px',
@@ -80,22 +57,13 @@ export default function App() {
       <Navbar activeCategory={activeCategory} setView={setCurrentView} />
       
       <AnimatePresence mode="wait">
-<<<<<<< HEAD
-        {currentView === 'home' ? (
-=======
         {selectedItem ? (
-          <motion.div key={`food-${selectedItem.id}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Suspense fallback={<PageLoader />}>
-              <FoodDetailsPage 
-                item={selectedItem} 
-                onBack={() => {
-                  setSelectedItem(null);
-                }} 
-              />
-            </Suspense>
-          </motion.div>
+          <FoodDetailsPage 
+            key="food-details"
+            item={selectedItem} 
+            onBack={() => setSelectedItem(null)} 
+          />
         ) : currentView === 'home' ? (
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
           <motion.div
             key="home"
             initial={{ opacity: 0 }}
@@ -137,11 +105,7 @@ export default function App() {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-10">
                         {MENU_ITEMS.filter(item => item.category === cat.id).map(item => (
-<<<<<<< HEAD
-                          <DishCard key={item.id} item={item} />
-=======
-                          <DishCard key={item.id} item={item} onSelect={() => setSelectedItem(item)} />
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
+                          <DishCard key={item.id} item={item} onSelect={setSelectedItem} />
                         ))}
                       </div>
                     </div>
@@ -302,22 +266,12 @@ export default function App() {
                </div>
             </footer>
           </motion.div>
-        ) : (
-<<<<<<< HEAD
+        ) : currentView === 'details' ? (
           <DetailsPage key="details" onBack={() => {
             setCurrentView('home');
             window.scrollTo(0, 0);
           }} />
-=======
-          <motion.div key="details-view" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Suspense fallback={<PageLoader />}>
-              <DetailsPage onBack={() => {
-                setCurrentView('home');
-              }} />
-            </Suspense>
-          </motion.div>
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
-        )}
+        ) : null}
       </AnimatePresence>
     </div>
   );

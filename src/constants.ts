@@ -19,11 +19,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'A rich, nutty classic made from ground melon seeds and leafy greens, simmered with tender proteins and traditional smoked fish for a deep, smoky finish.',
     price: 4000,
     category: 'african-dishes',
-<<<<<<< HEAD
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlGo4VicjjruN1Cjdf1wCWdTMucMfbKFEU6A&s',
-=======
-    image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=800&q=80&auto=format',
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
     badges: ['⭐ CLASSIC'],
   },
   {
@@ -32,11 +28,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Vibrant West-African Delicacy Featuring Tender Okra Pods Infused with Succulent Shrimp, Fresh Croakerfish, Prawns and Crab Claws Slow-Cooked with Bold Spices.',
     price: 15000,
     category: 'african-dishes',
-<<<<<<< HEAD
     image: '/src/assets/images/seafood-okro.png',
-=======
-    image: 'https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=800&q=80&auto=format',
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
     isFeatured: true,
     badges: ['🔥 LUXE'],
   },
@@ -46,11 +38,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Yoruba cuisine known as Eko special, with vegetables, stock-fish, ponmo, smoked catfish and panla fish.',
     price: 4000,
     category: 'african-dishes',
-<<<<<<< HEAD
     image: '/src/assets/images/eforiro.png',
-=======
-    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80&auto=format',
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
   },
   {
     id: 'edikang-ikong',
@@ -58,11 +46,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Originated among the Efik-Ibibio people of Akwa Ibom & Cross river state, very nutritious and well stocked with Ponmo, Panla, Smoked Catfish and Stock-fish.',
     price: 4000,
     category: 'african-dishes',
-<<<<<<< HEAD
     image: '/src/assets/images/edikang-soup.png',
-=======
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80&auto=format',
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
   },
 
   // Rice Class - Page 1 & 4
@@ -72,11 +56,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Bursting with local herbs and soul. This smoky rice dish is mixed with shredded meat and traditional spices that take you straight back to mama\'s kitchen.',
     price: 4000,
     category: 'rice-class',
-<<<<<<< HEAD
     image: '/src/assets/images/traditional-native-rice.png',
-=======
-    image: 'https://images.unsplash.com/photo-1546061872-a51d46094bc1?w=800&q=80&auto=format',
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
   },
   {
     id: 'ofada-rice-sauce',
@@ -84,11 +64,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Pure Nigerian heritage. Earthy local rice served with our legendary "Ayamase" palm oil sauce, loaded with assorted meats and bold peppers.',
     price: 5000,
     category: 'rice-class',
-<<<<<<< HEAD
     image: '/src/assets/images/traditional-ofada-rice.png',
-=======
-    image: 'https://images.unsplash.com/photo-1536304993881-ff86e5b6e5bd?w=800&q=80&auto=format',
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
     badges: ['🌶️ SPICY'],
   },
   {
@@ -97,11 +73,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Iconic jambalaya special rice explodes with the trinity of onions, celery and bell peppers sauteed in spicy sausage and shrimps.',
     price: 17000,
     category: 'rice-class',
-<<<<<<< HEAD
     image: '/src/assets/images/jambalaya-special-rice.png',
-=======
-    image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&q=80&auto=format',
->>>>>>> 4d9626b973700e92a42fe38f46dc12a8bbae86f3
     isFeatured: true,
   },
   {
@@ -120,7 +92,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Herb-Infused Peppered Snail, cooked with fresh herbs like thyme and rosemary.',
     price: 10000,
     category: 'starters-fingers',
-    image: 'https://images.unsplash.com/photo-1534422298391-e4f8c17290d4?w=800&q=80&auto=format',
+    image: '/src/assets/images/peppered snail.png',
   },
   {
     id: 'isi-ewu',
@@ -128,7 +100,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Traditional Homemade Cooked Goat Head in a Rich, Aromatic Spicy Delight And Sauce.',
     price: 15000,
     category: 'starters-fingers',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80&auto=format',
+    image: '/src/assets/images/isi-ewu.png',
     isFeatured: true,
   },
   {
@@ -137,7 +109,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Crispy Fried Gizzards with A Taste Of Spicy Delight, Mixed With Plantain.',
     price: 7000,
     category: 'starters-fingers',
-    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=80&auto=format',
+    image: '/src/assets/images/giz-dodo.png',
   },
   {
     id: 'bbq-croaker-fish',
@@ -145,7 +117,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Indulge in Our Crispy Marinated Croakerfish, Smothered in Our Signature BBQ Sauce and Spice.',
     price: 15000,
     category: 'starters-fingers',
-    image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c2?w=600&q=80&auto=format',
+    image: '/src/assets/images/bbq-croaker-fish.png',
   },
 
   // Pepper Soups - Page 3
@@ -164,7 +136,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Spicy and Savory, Tender Goat Meat Pepper Soup, Infused with Aromatic Peppers, Spices and Herbs Served with Bread Roll.',
     price: 6000,
     category: 'pepper-soups',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80&auto=format',
+    image: '/src/assets/images/goat meat pepper soup.png',
   },
 
   // Platters - Page 5
@@ -183,7 +155,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: '1 Crab, 2 Corns, 4 Spring Rolls, Potato, 1 Fish, 1 Prawn, 2 Calamari Kebab.',
     price: 70000,
     category: 'platters',
-    image: 'https://images.unsplash.com/photo-1551248429-40975aa4de74?w=1000&q=80&auto=format',
+    image: '/src/assets/images/naija -seafood - platter.png',
   },
 
   // Pasta & Noodles - Page 6
@@ -201,7 +173,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tender Grilled Chicken Breast with all Dente Penne in Luscious, Velvety Sauce of Heavy Cream and Cheese.',
     price: 10000,
     category: 'pasta-noodles',
-    image: 'https://images.unsplash.com/photo-1502741224143-90386d7f8c82?w=800&q=80&auto=format',
+    image: '/src/assets/images/chicken-breast.png',
   },
 
   // Sauces - Page 7
