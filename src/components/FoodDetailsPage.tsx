@@ -21,10 +21,11 @@ export default function FoodDetailsPage({ item, onBack }: FoodDetailsPageProps) 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          src={item.image ? `${item.image}&w=1600&q=80` : 'https://images.unsplash.com/photo-1546767062-f8486dbc150a?w=1600&q=80&auto=format'} 
-          alt={item.name}
+          src={item.image || 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80&auto=format&fit=crop'} 
+          alt={`${item.name} - Premium dish at Choplife Bistro Osogbo`}
           loading="eager"
-          className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+          decoding="sync"
+          className="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
         
@@ -113,7 +114,7 @@ export default function FoodDetailsPage({ item, onBack }: FoodDetailsPageProps) 
 
             <div className="pt-6">
               <div className="text-3xl lg:text-4xl font-bebas text-primary mb-2">
-                ₦{item.price.toLocaleString()}
+                {'\u20A6'}{item.price.toLocaleString()}
               </div>
               <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">Pricing Subject to Market Fluctuations</p>
             </div>

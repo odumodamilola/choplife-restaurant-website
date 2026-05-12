@@ -1,137 +1,83 @@
-import React, { useRef, useState, useEffect, MouseEvent } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import { MenuItem } from '../types';
+import OptimizedImage from './OptimizedImage';
 
 interface DishCardProps {
   item: MenuItem;
   onSelect: (item: MenuItem) => void;
 }
 
-const DishCard: React.FC<DishCardProps> = ({ item, onSelect }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isHashTarget, setIsHashTarget] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
-
-  // Mouse tilt logic
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
-
-  const handleMouseMove = (e: MouseEvent) => {
-    if (isTouch || !cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    x.set(mouseX / width - 0.5);
-    y.set(mouseY / height - 0.5);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  useEffect(() => {
-    setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    
-    const checkHash = () => {
-      setIsHashTarget(window.location.hash === `#${item.id}`);
-    };
-    checkHash();
-    window.addEventListener('hashchange', checkHash);
-    return () => window.removeEventListener('hashchange', checkHash);
-  }, [item.id]);
-
+export default function DishCard({ item, onSelect }: DishCardProps) {
   return (
-    <motion.div
+    <motion.article
       id={item.id}
-      ref={cardRef}
       onClick={() => onSelect(item)}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX: isTouch ? 0 : rotateX,
-        rotateY: isTouch ? 0 : rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`
-        relative group overflow-hidden bg-surface border rounded-3xl transition-all duration-500 cursor-pointer
-        ${isHashTarget ? 'border-primary ring-4 ring-primary/20 shadow-[0_0_60px_rgba(227,30,36,0.2)] scale-[1.02]' : 'border-border hover:border-primary/40 shadow-2xl'}
+        group relative overflow-hidden bg-surface border border-border rounded-2xl lg:rounded-3xl cursor-pointer
+        hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500
         ${item.isFeatured ? 'md:col-span-2' : ''}
       `}
     >
-      <div 
-        style={{ transform: isTouch ? "none" : "translateZ(30px)" }}
-        className="aspect-[4/3] lg:aspect-square xl:aspect-[4/3] overflow-hidden relative"
-      >
-        <img 
-          src={item.image || 'https://images.unsplash.com/photo-1546767062-f8486dbc150a?w=800&q=80&auto=format'} 
-          alt={item.name}
-          className="w-full h-full object-cover grayscale-[0.2] transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0"
+      {/* Image Container */}
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <OptimizedImage
+          src={item.image || 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop'}
+          alt={`${item.name} - West African dish at Choplife Bistro`}
+          className="w-full h-full transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
         
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-90" />
+
+        {/* Badges */}
         {item.badges && (
-          <div className="absolute top-4 left-4 lg:top-6 lg:left-6 flex flex-wrap gap-2">
+          <div className="absolute top-4 left-4 flex flex-wrap gap-2">
             {item.badges.map(badge => (
-              <span key={badge} className="px-3 lg:px-4 py-1.5 bg-primary text-white font-display text-[8px] lg:text-[10px] font-bold tracking-[0.2em] rounded-full shadow-lg">
+              <span key={badge} className="px-3 py-1.5 bg-primary/90 backdrop-blur-sm text-white font-display text-[9px] font-bold tracking-[0.15em] rounded-full">
                 {badge}
               </span>
             ))}
           </div>
         )}
 
-        <div className="absolute bottom-4 left-4 lg:bottom-8 lg:left-8 right-4 lg:right-8 flex justify-between items-end">
-           <div className="max-w-[70%]">
-             <h3 className="text-white text-lg lg:text-3xl mb-1 lg:mb-2 uppercase group-hover:text-primary transition-colors line-clamp-1">{item.name}</h3>
-             <p className="text-white/60 font-sans text-[10px] lg:text-xs leading-relaxed line-clamp-2 transition-colors group-hover:text-white/80">
-               {item.description}
-             </p>
-           </div>
-           <div className="flex flex-col items-end gap-2 lg:gap-4">
-              <span className="font-mono text-accent font-bold text-sm lg:text-xl">
-                ?{item.price.toLocaleString()}
-              </span>
-              <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all transform group-hover:rotate-45">
-                <ArrowUpRight size={16} />
-              </div>
-           </div>
+        {/* Price badge - top right */}
+        <div className="absolute top-4 right-4">
+          <span className="px-3 py-2 bg-black/60 backdrop-blur-md text-white font-mono text-sm font-bold rounded-lg border border-white/10">
+            {'\u20A6'}{item.price.toLocaleString()}
+          </span>
+        </div>
+
+        {/* Bottom content overlay */}
+        <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6">
+          <h3 className="text-white text-lg lg:text-2xl mb-1 uppercase group-hover:text-primary transition-colors duration-300 line-clamp-1">
+            {item.name}
+          </h3>
+          <p className="text-white/60 font-sans text-xs lg:text-sm leading-relaxed line-clamp-2 group-hover:text-white/80 transition-colors duration-300">
+            {item.description}
+          </p>
         </div>
       </div>
 
-      <div 
-        className="p-4 lg:p-8 flex items-center justify-between bg-surface-soft/40 border-t border-border"
-      >
-        <div className="flex gap-1">
-          {[1,2,3].map(i => (
-            <div key={i} className="w-1 lg:w-1.5 h-1 lg:h-1.5 rounded-full bg-primary/20" />
-          ))}
-        </div>
+      {/* Card Footer */}
+      <div className="px-5 lg:px-6 py-4 flex items-center justify-between border-t border-border/50">
+        <span className="font-display text-[9px] lg:text-[10px] font-bold tracking-[0.3em] text-muted-foreground uppercase">
+          {item.category.replace(/-/g, ' ')}
+        </span>
         <button 
           onClick={(e) => { e.stopPropagation(); onSelect(item); }}
-          className="font-display text-[9px] lg:text-[11px] font-bold tracking-[0.2em] uppercase text-muted hover:text-foreground transition-all"
+          className="flex items-center gap-2 font-display text-[10px] lg:text-[11px] font-bold tracking-[0.15em] uppercase text-muted hover:text-primary transition-colors group/btn"
         >
-          View More
+          View
+          <div className="w-7 h-7 rounded-full border border-border flex items-center justify-center group-hover/btn:bg-primary group-hover/btn:border-primary group-hover/btn:text-white transition-all">
+            <ArrowUpRight size={12} className="group-hover/btn:rotate-45 transition-transform" />
+          </div>
         </button>
       </div>
-
-      {/* Glossy overlay effect on move */}
-      {!isTouch && (
-        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-10 transition-opacity bg-gradient-to-br from-white/20 via-transparent to-black/20" />
-      )}
-    </motion.div>
+    </motion.article>
   );
-};
-
-export default DishCard;
+}

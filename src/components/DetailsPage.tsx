@@ -39,7 +39,7 @@ export default function DetailsPage({ onBack }: DetailsPageProps) {
             transition={{ delay: 0.4 }}
             className="text-xl lg:text-2xl text-muted font-sans font-medium"
           >
-            A modern philosophy rooted in ancestral West African heat.
+            A modern philosophy rooted in ancestral West African heat. Where bold flavor meets beautiful dining.
           </motion.p>
         </header>
 
@@ -50,7 +50,7 @@ export default function DetailsPage({ onBack }: DetailsPageProps) {
             <div className="h-1 w-20 bg-primary" />
           </div>
           <div className="text-lg lg:text-2xl text-muted leading-relaxed font-sans italic lg:not-italic">
-            Choplife is a cultural collective. We serve as a bridge between the deep, smoky traditions of our elders and the fast-paced, vibrant energy of today's global citizen. 
+            Choplife didn't start in a boardroom. It started around a fire. Growing up in Nigeria, food was never just fuel — it was the center of everything. We built Choplife Bistro to bring that feeling back. A bridge between the deep, smoky traditions of our elders and the vibrant energy of today's global citizen. 
           </div>
         </section>
 
@@ -61,17 +61,17 @@ export default function DetailsPage({ onBack }: DetailsPageProps) {
             {[
               { 
                 title: "Connection", 
-                desc: "We bring people together over plates that tell stories of home and heritage.",
+                desc: "We bring people together over plates that tell stories of home and heritage. Food is the universal language, and our kitchen speaks it fluently.",
                 icon: Heart
               },
               { 
                 title: "Evolution", 
-                desc: "We keep tradition alive by allowing it to grow, adapt, and shine in new ways.",
+                desc: "We keep tradition alive by allowing it to grow, adapt, and shine in new ways. Honoring the past doesn't mean being stuck in it.",
                 icon: Zap
               },
               { 
                 title: "Visibility", 
-                desc: "We place West African kitchen mastery on the world stage it deserves.",
+                desc: "We place West African kitchen mastery on the world stage it deserves. Our food culture is rich, complex, and beautiful — the world should know it.",
                 icon: Globe
               }
             ].map((item, i) => (
@@ -98,10 +98,10 @@ export default function DetailsPage({ onBack }: DetailsPageProps) {
           <h2 className="text-3xl lg:text-5xl font-bebas mb-12 lg:mb-20">THE ELEMENTS OF EXCELLENCE</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
             {[
-              { label: "Ancestral Recipes", detail: "Every seasoning blend is passed down through generations of kitchen masters." },
-              { label: "Modern spirit", detail: "A contemporary dining experience designed for the global era." },
-              { label: "Pure Ingredients", detail: "Ethically sourced, seasonal, and always vibrating with freshness." },
-              { label: "Soulful Service", detail: "Hospitality that feels like a warm welcome from an old friend." }
+              { label: "Ancestral Recipes", detail: "Every seasoning blend is passed down through generations of kitchen masters. We don't follow trends — we follow roots." },
+              { label: "Modern Spirit", detail: "A contemporary dining experience designed for the global era. Beautiful space. Beautiful food. Beautiful energy." },
+              { label: "Pure Ingredients", detail: "Ethically sourced, seasonal, and always vibrating with freshness. If it's not worthy of your plate, it doesn't leave our kitchen." },
+              { label: "Soulful Service", detail: "Hospitality that feels like a warm welcome from an old friend. No pretension. No rushing. Just genuine care." }
             ].map(point => (
               <div key={point.label}>
                 <h4 className="font-display text-[11px] font-bold tracking-[0.3em] text-primary uppercase mb-3">{point.label}</h4>
@@ -116,7 +116,7 @@ export default function DetailsPage({ onBack }: DetailsPageProps) {
            <Users className="mx-auto text-muted-foreground" size={48} strokeWidth={1} />
            <h2 className="text-2xl lg:text-4xl font-display font-bold tracking-tight uppercase">Built for the culture.</h2>
            <p className="text-lg lg:text-xl text-muted leading-relaxed">
-             Whether you are reconnecting with your roots or exploring West African flavors for the very first time, there is a seat at our table for you.
+             Whether you are reconnecting with your roots or exploring West African flavors for the very first time, there is a seat at our table for you. Choplife is for the curious, the nostalgic, the adventurous, and the hungry.
            </p>
         </section>
 
@@ -128,7 +128,7 @@ export default function DetailsPage({ onBack }: DetailsPageProps) {
             </div>
             <div>
               <h4 className="font-display font-bold uppercase tracking-wider">Quality Assured</h4>
-              <p className="text-sm text-muted">Rigorous standards for every plate served.</p>
+              <p className="text-sm text-muted">Rigorous standards for every plate we serve. Your trust is our foundation.</p>
             </div>
           </div>
           <div className="text-center md:text-right">

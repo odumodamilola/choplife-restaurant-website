@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowRight, Utensils } from 'lucide-react';
+import { Menu, X, ArrowRight, Phone } from 'lucide-react';
 import { MENU_CATEGORIES } from '../constants';
 import ThemeToggle from './ThemeToggle';
+import choplifeLogo from '../assets/images/Choplife-bistro-logo-04.png';
 
 interface NavbarProps {
   activeCategory: string;
@@ -11,32 +12,37 @@ interface NavbarProps {
 
 export default function Navbar({ activeCategory, setView }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500">
-        <div className="bg-background/80 backdrop-blur-2xl border-b border-border h-16 md:h-20 flex items-center justify-between px-6 md:px-12">
+      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'shadow-sm' : ''}`}>
+        <div className={`backdrop-blur-2xl border-b border-border h-16 md:h-20 flex items-center justify-between px-6 md:px-12 transition-colors duration-500 ${isScrolled ? 'bg-background/95' : 'bg-background/80'}`}>
           <a 
             href="#home" 
             onClick={(e) => {
               e.preventDefault();
               setView('home');
-              window.scrollTo(0, 0);
-              window.location.hash = 'home';
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="font-bebas text-3xl md:text-4xl tracking-wider flex items-center group"
+            className="flex items-center group"
           >
-            <span className="text-foreground">CHOP</span>
-            <span className="text-primary italic ml-1 group-hover:text-accent transition-colors">LIFE</span>
+            <img src={choplifeLogo} alt="Choplife Bistro" className="h-16 md:h-[4.5rem] w-auto object-contain" />
           </a>
 
-          {/* Desktop Links */}
+          {/* Desktop Category Navigation */}
           <div className="hidden lg:flex items-center gap-1 overflow-x-auto no-scrollbar max-w-2xl px-4 translate-y-[1px]">
             <button
               onClick={() => setView('details')}
               className="px-4 py-2 font-display text-[10px] uppercase font-bold tracking-[0.2em] text-muted hover:text-primary transition-all whitespace-nowrap border-b-2 border-transparent"
             >
-              Our Standards
+              Our Story
             </button>
             <div className="w-[1px] h-4 bg-border mx-2" />
             {MENU_CATEGORIES.map((cat) => (
@@ -44,10 +50,10 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
                 key={cat.id}
                 href={`#${cat.id}`}
                 className={`
-                  px-4 py-2 font-display text-[10px] uppercase font-bold tracking-[0.2em] transition-all whitespace-nowrap border-b-2
+                  relative px-4 py-2 font-display text-[10px] uppercase font-bold tracking-[0.2em] transition-all whitespace-nowrap border-b-2
                   ${activeCategory === cat.id 
-                    ? 'text-primary border-primary bg-primary/5' 
-                    : 'text-muted border-transparent hover:text-foreground'}
+                    ? 'text-primary border-primary' 
+                    : 'text-muted border-transparent hover:text-foreground hover:border-border'}
                 `}
               >
                 {cat.name}
@@ -55,11 +61,14 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
             ))}
           </div>
 
-          <div className="flex items-center gap-4 lg:gap-8">
-            <button className="hidden sm:flex items-center gap-3 font-display text-[11px] font-bold tracking-widest text-muted hover:text-foreground transition-colors group">
-              <Utensils size={14} className="group-hover:text-primary transition-colors" />
-              RESERVATIONS
-            </button>
+          <div className="flex items-center gap-4 lg:gap-6">
+            <a 
+              href="tel:+2349053063345"
+              className="hidden sm:flex items-center gap-2 font-display text-[11px] font-bold tracking-widest text-muted hover:text-primary transition-colors group"
+            >
+              <Phone size={13} className="group-hover:text-primary transition-colors" />
+              <span className="hidden md:inline">CALL US</span>
+            </a>
             
             <ThemeToggle />
 
@@ -67,6 +76,7 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 text-muted hover:text-foreground transition-colors"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -78,27 +88,35 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="fixed inset-0 z-[110] lg:hidden"
           >
-            <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
-            <motion.div className="absolute top-0 right-0 bottom-0 w-4/5 max-w-sm bg-surface border-l border-border p-8 flex flex-col">
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
+            <motion.div 
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 250 }}
+              className="absolute top-0 right-0 bottom-0 w-4/5 max-w-sm bg-background border-l border-border p-8 flex flex-col overflow-y-auto"
+            >
               <div className="flex justify-between items-center mb-12">
-                <span className="font-bebas text-2xl text-foreground">MENU</span>
-                <button onClick={() => setIsOpen(false)} className="p-2 text-muted-foreground"><X size={20} /></button>
+                <span className="font-bebas text-3xl text-foreground">MENU</span>
+                <button onClick={() => setIsOpen(false)} className="p-2 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close menu">
+                  <X size={22} />
+                </button>
               </div>
 
-              <div className="flex flex-col gap-6 overflow-y-auto no-scrollbar pb-12">
+              <div className="flex flex-col gap-4 pb-12">
                 <button
                   onClick={() => { setView('details'); setIsOpen(false); }}
-                  className="group flex items-center justify-between py-4 border-b border-border text-primary font-bebas text-4xl uppercase tracking-tight"
+                  className="group flex items-center justify-between py-4 border-b border-border"
                 >
-                  Our Standards
-                  <ArrowRight size={20} />
+                  <span className="font-bebas text-3xl text-primary uppercase tracking-tight">Our Story</span>
+                  <ArrowRight size={18} className="text-primary" />
                 </button>
+                
                 {MENU_CATEGORIES.map((cat, i) => (
                   <motion.a
                     key={cat.id}
@@ -106,26 +124,26 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
                     onClick={() => setIsOpen(false)}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
+                    transition={{ delay: i * 0.04 }}
                     className={`
-                      group flex items-center justify-between py-2 border-b border-border
-                      ${activeCategory === cat.id ? 'text-primary' : 'text-muted'}
+                      group flex items-center justify-between py-3 border-b border-border/50
+                      ${activeCategory === cat.id ? 'border-primary/30' : ''}
                     `}
                   >
-                    <span className="font-bebas text-4xl uppercase tracking-tight group-hover:text-primary transition-colors text-foreground">
+                    <span className={`font-bebas text-3xl uppercase tracking-tight transition-colors ${activeCategory === cat.id ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>
                       {cat.name}
                     </span>
-                    <ArrowRight size={20} className="translate-x-[-10px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all text-primary" />
+                    <ArrowRight size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-all" />
                   </motion.a>
                 ))}
               </div>
 
               <div className="mt-auto pt-8 border-t border-border flex flex-col gap-4">
-                <button className="w-full py-4 bg-primary text-white font-display text-[11px] font-bold tracking-widest uppercase rounded-xl hover:bg-primary-dark transition-colors">
+                <a href="tel:+2349053063345" className="w-full py-4 bg-primary text-white font-display text-[11px] font-bold tracking-widest uppercase rounded-xl hover:bg-primary-dark transition-colors text-center block">
                   BOOK A TABLE
-                </button>
+                </a>
                 <p className="text-center text-muted-foreground font-mono text-[9px] uppercase tracking-[0.2em]">
-                  15 Choplife Avenue, Victoria Island
+                  Mandela Freedom Park, Osogbo
                 </p>
               </div>
             </motion.div>

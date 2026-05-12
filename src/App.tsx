@@ -8,7 +8,8 @@ import FoodDetailsPage from './components/FoodDetailsPage';
 import { MENU_CATEGORIES, MENU_ITEMS } from './constants';
 import { MenuItem } from './types';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, MapPin, Instagram, Twitter, Linkedin, Youtube, ExternalLink } from 'lucide-react';
+import { ArrowRight, MapPin, Instagram, Twitter, Facebook, Music, ExternalLink, Mail } from 'lucide-react';
+import choplifeVideo from './assets/videos/choplifebistroo (@choplifebistroo).mp4';
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState('');
@@ -80,7 +81,7 @@ export default function App() {
                       key={cat.id} 
                       id={cat.id}
                       className="mb-24 lg:mb-48 scroll-mt-24 lg:scroll-mt-32"
-                      ref={el => sectionRefs.current[cat.id] = el}
+                      ref={el => { sectionRefs.current[cat.id] = el; }}
                     >
                       <motion.div 
                         initial={{ opacity: 0, y: 30 }}
@@ -123,22 +124,23 @@ export default function App() {
                       transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
                       className="aspect-square lg:aspect-[4/5] bg-gradient-to-br from-surface to-background border border-border rounded-[2rem] lg:rounded-[4rem] overflow-hidden relative"
                      >
-                       <img 
-                        src="https://images.unsplash.com/photo-1604329762191-3837920ab5ff?w=1200&q=80&auto=format" 
-                        alt="Culture" 
-                        className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
+                       <video 
+                        src={choplifeVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
                        />
-                       <div className="absolute inset-0 flex items-center justify-center p-12 pointer-events-none">
-                         <span className="font-bebas text-[15vmax] text-muted-foreground/10 whitespace-nowrap -rotate-90 select-none uppercase">ARCHITECTURE</span>
-                       </div>
+                       <div className="absolute inset-0 bg-black/20 pointer-events-none" />
                      </motion.div>
                   </div>
 
                   <div className="max-w-2xl order-1 lg:order-2">
                     <span className="font-display text-[11px] lg:text-[13px] font-bold tracking-[0.5em] text-primary uppercase block mb-6 lg:mb-10">Our Roots</span>
-                    <h2 className="mb-8 lg:mb-12 text-foreground">FLAVOR WITH <span className="text-primary italic">SOUL.</span></h2>
+                    <h2 className="mb-8 lg:mb-12 text-foreground">MORE THAN A RESTAURANT. <span className="text-primary italic">A CELEBRATION.</span></h2>
                     <p className="text-muted text-lg lg:text-2xl leading-relaxed mb-12 font-sans italic lg:not-italic lg:text-muted/80">
-                      At Choplife, we believe that food is a love language. We’ve taken the vibrant, bold spices of West Africa and paired them with world-class hospitality to create a space where everyone feels like royalty. 
+                      At Choplife, food is a love language. We take the bold, smoky, soulful flavors passed down through generations and serve them in a space designed to make you feel like royalty. Every plate is a love letter to West African heritage.
                     </p>
                     
                     <button 
@@ -234,17 +236,20 @@ export default function App() {
                         <div className="font-bebas text-6xl lg:text-9xl leading-none mb-6 text-foreground">
                           CHOP<span className="text-primary italic">LIFE.</span>
                         </div>
-                        <p className="text-muted-foreground font-display text-xs lg:text-sm tracking-[0.3em] uppercase">Building taste across borders.</p>
+                        <p className="text-muted-foreground font-display text-xs lg:text-sm tracking-[0.3em] uppercase">Bold West African flavors, beautifully served.</p>
                      </div>
                      
                      <div className="flex flex-col sm:flex-row gap-10 lg:gap-20">
+                        <a href="mailto:choplifebistrooo@gmail.com" className="font-display text-[10px] lg:text-[12px] font-bold tracking-[0.4em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-4 group">
+                          <Mail size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                          choplifebistrooo@gmail.com
+                        </a>
                         {[
-                          { name: 'Instagram', icon: Instagram },
-                          { name: 'X / Twitter', icon: Twitter },
-                          { name: 'LinkedIn', icon: Linkedin },
-                          { name: 'YouTube', icon: Youtube }
+                          { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/choplifebristoo' },
+                          { name: 'TikTok', icon: Music, url: 'https://tiktok.com/@choplifebristoo' },
+                          { name: 'Facebook', icon: Facebook, url: '#' }
                         ].map(social => (
-                          <a key={social.name} href="#" className="font-display text-[10px] lg:text-[12px] font-bold tracking-[0.4em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-4 group">
+                          <a key={social.name} href={social.url} className="font-display text-[10px] lg:text-[12px] font-bold tracking-[0.4em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-4 group">
                             <social.icon size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
                             {social.name}
                             <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
