@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choplife Bistro | Vibrant West African Culinary Experience</title>
+    <meta name="description" content="Choplife Bistro serves soulful West African cuisine with a modern twist. Experience the heritage of Nigeria through our curated menu. Book your table in Osogbo today." />
+    <meta name="keywords" content="West African restaurant, Nigerian food Osogbo, fine dining Nigeria, authentic Jollof rice, Egusi soup, Choplife Bistro" />
+    <meta property="og:title" content="Choplife Bistro | Vibrant West African Culinary Experience" />
+    <meta property="og:description" content="Celebrate life with premium West African flavors. Architecture through flavor." />
+    <meta property="og:type" content="website" />
+    <script>
+      // Workaround for "Cannot set property fetch of #<Window> which has only a getter"
+      // This happens when a library tries to polyfill fetch by assignment.
+      try {
+        const _fetch = window.fetch;
+        Object.defineProperty(window, 'fetch', {
+          get: () => _fetch,
+          set: () => { console.warn('Blocked attempt to override window.fetch'); },
+          configurable: true,
+          enumerable: true
+        });
+      } catch (e) {
+        // If fetch is not configurable, we just hope for the best
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
