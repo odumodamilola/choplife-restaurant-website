@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { HashRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,11 +12,17 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, MapPin, Instagram, Twitter, Facebook, Music, ExternalLink, Mail } from 'lucide-react';
 import choplifeVideo from './assets/videos/choplifebistroo (@choplifebistroo).mp4';
 
-export default function App() {
+function Home() {
   const [activeCategory, setActiveCategory] = useState('');
-  const [currentView, setCurrentView] = useState<'home' | 'details'>('home');
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const navigate = useNavigate();
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  useEffect(() => {
+    if (selectedItem) {
+      navigate(`#/food/${selectedItem.id}`);
+    }
+  }, [selectedItem, navigate]);
 
   useEffect(() => {
     if (selectedItem) {
@@ -52,19 +59,26 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Cursor />
       <div className="noise-overlay" />
-      <Navbar activeCategory={activeCategory} setView={setCurrentView} />
+      <Navbar activeCategory={activeCategory} setView={() => navigate('#/')} />
       
       <AnimatePresence mode="wait">
         {selectedItem ? (
           <FoodDetailsPage 
             key="food-details"
             item={selectedItem} 
-            onBack={() => setSelectedItem(null)} 
+            onBack={() => {
+              setSelectedItem(null);
+              navigate('#/');
+            }} 
           />
-        ) : currentView === 'home' ? (
+        ) : (
           <motion.div
             key="home"
             initial={{ opacity: 0 }}
@@ -144,7 +158,7 @@ export default function App() {
                     </p>
                     
                     <button 
-                      onClick={() => setCurrentView('details')}
+                      onClick={() => navigate('#/details')}
                       className="group flex items-center gap-4 text-primary font-display text-[11px] font-bold tracking-[0.2em] uppercase mb-12 hover:gap-6 transition-all"
                     >
                       Our Philosophy
@@ -216,7 +230,7 @@ export default function App() {
                            <iframe 
                               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.079921880411!2d4.5424794740078855!3d7.78135079223831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103787beac10191b%3A0xe98efc513cebbdb7!2sChoplife%20Bistro%20Restaurants%20Osogbo!5e0!3m2!1sen!2sng!4v1778665418796!5m2!1sen!2sng" 
                               className="w-full h-full border-0"
-                              allowFullScreen="" 
+                              allowFullScreen
                               loading="lazy" 
                               referrerPolicy="no-referrer-when-downgrade"
                            />
@@ -244,9 +258,9 @@ export default function App() {
                           <span className="sm:hidden">Email</span>
                         </a>
                         {[
-                          { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/choplifebristoo' },
-                          { name: 'TikTok', icon: Music, url: 'https://tiktok.com/@choplifebristoo' },
-                          { name: 'Facebook', icon: Facebook, url: '#' }
+                          { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/choplifebristroo' },
+                          { name: 'TikTok', icon: Music, url: 'https://tiktok.com/@choplifebristroo' },
+                          { name: 'Facebook', icon: Facebook, url: 'https://facebook.com/choplifebristroo' }
                         ].map(social => (
                           <a key={social.name} href={social.url} className="font-display text-[9px] lg:text-[11px] font-bold tracking-[0.3em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-3 group">
                             <social.icon size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
@@ -264,19 +278,50 @@ export default function App() {
                      <div className="flex gap-8 text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">
                         <a href="#" className="hover:text-foreground">Privacy</a>
                         <a href="#" className="hover:text-foreground">Terms</a>
-                        <a href="#" className="hover:text-foreground" onClick={(e) => { e.preventDefault(); setCurrentView('details'); }}>Our Standards</a>
+                        <a href="#" className="hover:text-foreground" onClick={(e) => { e.preventDefault(); navigate('#/details'); }}>Our Standards</a>
                      </div>
                   </div>
                </div>
             </footer>
           </motion.div>
-        ) : currentView === 'details' ? (
-          <DetailsPage key="details" onBack={() => {
-            setCurrentView('home');
-            window.scrollTo(0, 0);
-          }} />
-        ) : null}
+        )}
       </AnimatePresence>
-    </div>
+    </motion.div>
+  );
+}
+
+function FoodDetailsRoute() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  // Extract food ID from hash like #/food/egusi
+  const foodId = location.hash.replace('#/food/', '') || '';
+  const item = MENU_ITEMS.find(i => i.id === foodId);
+
+  if (!item) {
+    navigate('#/');
+    return null;
+  }
+
+  return (
+    <FoodDetailsPage 
+      key="food-details"
+      item={item} 
+      onBack={() => navigate('#/')} 
+    />
+  );
+}
+
+export default function App() {
+  return (
+    <HashRouter>
+      <div className="relative">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/food/:id" element={<FoodDetailsRoute />} />
+          <Route path="/details" element={<DetailsPage onBack={() => window.location.hash = '#/'} />} />
+        </Routes>
+      </div>
+    </HashRouter>
   );
 }
