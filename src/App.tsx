@@ -119,7 +119,7 @@ function Home() {
                         </div>
                       </motion.div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-10">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 xl:gap-10">
                         {MENU_ITEMS.filter(item => item.category === cat.id).map(item => (
                           <DishCard key={item.id} item={item} onSelect={setSelectedItem} />
                         ))}
@@ -189,45 +189,45 @@ function Home() {
               </section>
 
               {/* Location Section */}
-              <section id="location" className="py-20 lg:py-48">
+              <section id="location" className="py-12 sm:py-16 md:py-20 lg:py-40 xl:py-48">
                 <div className="container-xl">
-                   <div className="relative border border-border rounded-[2rem] lg:rounded-[5rem] overflow-hidden bg-surface shadow-2xl group">
+                   <div className="relative border border-border rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[5rem] overflow-hidden bg-surface shadow-2xl group">
                       {/* Abstract Interactive Glow */}
                       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full hidden lg:block bg-gradient-to-bl from-primary/5 to-transparent pointer-events-none" />
                       
                       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-0">
-                        <div className="p-10 lg:p-24 border-b lg:border-b-0 lg:border-r border-border">
-                          <span className="font-display text-[10px] lg:text-[12px] font-bold tracking-[0.4em] text-accent uppercase block mb-8 lg:mb-12">Visit Us</span>
-                          <h2 className="mb-12 lg:mb-20 uppercase text-foreground">EXPERIENCE <br/> <span className="text-primary italic">.</span></h2>
+                        <div className="p-6 sm:p-8 md:p-10 lg:p-24 border-b lg:border-b-0 lg:border-r border-border">
+                          <span className="font-display text-[9px] sm:text-[10px] lg:text-[12px] font-bold tracking-[0.3em] sm:tracking-[0.4em] text-accent uppercase block mb-6 sm:mb-8 lg:mb-12">Visit Us</span>
+                          <h2 className="mb-8 sm:mb-10 lg:mb-16 md:mb-20 uppercase text-foreground text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">EXPERIENCE <br/> <span className="text-primary italic">.</span></h2>
                           
-                          <div className="flex flex-col gap-10 lg:gap-16 mb-16 lg:mb-24">
+                          <div className="flex flex-col gap-8 sm:gap-10 lg:gap-16 mb-10 sm:mb-12 lg:mb-16 xl:mb-24">
                              <div>
-                                <h4 className="font-display text-[10px] lg:text-[12px] font-bold tracking-[0.3em] uppercase text-primary mb-4">Our Home</h4>
-                                <p className="text-muted font-sans text-xl lg:text-3xl leading-tight">
+                                <h4 className="font-display text-[9px] sm:text-[10px] lg:text-[12px] font-bold tracking-[0.25em] sm:tracking-[0.3em] uppercase text-primary mb-3 sm:mb-4">Our Home</h4>
+                                <p className="text-muted font-sans text-base sm:text-xl lg:text-3xl leading-tight">
                                    1, Mandela Freedom Park,<br />
                                    Alekunwodo, Osogbo,<br />
                                    Nigeria
                                 </p>
                              </div>
-                             <div className="grid grid-cols-2 gap-8">
+                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                                 <div>
-                                  <h4 className="font-display text-[9px] font-bold tracking-[0.3em] uppercase text-muted-foreground mb-3">Service Hours</h4>
-                                  <p className="text-muted font-sans text-sm tracking-wide">11:00 — 23:00 DAILY</p>
+                                  <h4 className="font-display text-[8px] sm:text-[9px] font-bold tracking-[0.25em] sm:tracking-[0.3em] uppercase text-muted-foreground mb-2 sm:mb-3">Service Hours</h4>
+                                  <p className="text-muted font-sans text-sm sm:text-base tracking-wide">11:00 — 23:00 DAILY</p>
                                 </div>
                                 <div>
-                                  <h4 className="font-display text-[9px] font-bold tracking-[0.3em] uppercase text-muted-foreground mb-3">Priority Line</h4>
-                                  <p className="text-muted font-sans text-sm tracking-wide">+234 905 306 3345</p>
+                                  <h4 className="font-display text-[8px] sm:text-[9px] font-bold tracking-[0.25em] sm:tracking-[0.3em] uppercase text-muted-foreground mb-2 sm:mb-3">Priority Line</h4>
+                                  <p className="text-muted font-sans text-sm sm:text-base tracking-wide">+234 905 306 3345</p>
                                 </div>
                              </div>
                           </div>
 
-                          <div className="flex flex-wrap gap-4 lg:gap-6">
-                            <a href="tel:+2349053063345" className="bg-foreground text-background px-10 py-5 rounded-xl font-display text-[11px] font-bold tracking-[0.2em] hover:bg-foreground/80 transition-all text-center flex-1 sm:flex-none">VOICE CALL</a>
-                            <button className="border border-border px-10 py-5 rounded-xl font-display text-[11px] font-bold tracking-[0.2em] hover:border-primary transition-all text-center flex-1 sm:flex-none uppercase text-foreground">Digital Booking</button>
+                          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6">
+                            <a href="tel:+2349053063345" className="bg-foreground text-background px-6 sm:px-8 lg:px-10 py-4 sm:py-5 rounded-xl font-display text-[10px] sm:text-[11px] font-bold tracking-[0.15em] sm:tracking-[0.2em] hover:bg-foreground/80 transition-all text-center flex-1 sm:flex-none active:scale-95">VOICE CALL</a>
+                            <button className="border border-border px-6 sm:px-8 lg:px-10 py-4 sm:py-5 rounded-xl font-display text-[10px] sm:text-[11px] font-bold tracking-[0.15em] sm:tracking-[0.2em] hover:border-primary transition-all text-center flex-1 sm:flex-none uppercase text-foreground active:scale-95">Digital Booking</button>
                           </div>
                         </div>
 
-                        <div className="h-[400px] lg:h-auto relative overflow-hidden">
+                        <div className="h-[300px] sm:h-[350px] md:h-[400px] lg:h-auto relative overflow-hidden">
                            <iframe 
                               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.079921880411!2d4.5424794740078855!3d7.78135079223831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103787beac10191b%3A0xe98efc513cebbdb7!2sChoplife%20Bistro%20Restaurants%20Osogbo!5e0!3m2!1sen!2sng!4v1778665418796!5m2!1sen!2sng" 
                               className="w-full h-full border-0"
@@ -242,18 +242,18 @@ function Home() {
               </section>
             </main>
 
-            <footer className="py-20 lg:py-32 border-t border-border bg-surface-soft">
+            <footer className="py-12 sm:py-16 lg:py-24 xl:py-32 border-t border-border bg-surface-soft">
                <div className="container-xl">
-                  <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-16 lg:gap-0 mb-20 lg:mb-32">
-                     <div>
-                        <div className="font-bebas text-6xl lg:text-9xl leading-none mb-6 text-foreground">
+                  <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 sm:gap-12 lg:gap-0 mb-12 sm:mb-16 lg:mb-20 xl:mb-32">
+                     <div className="w-full lg:w-auto">
+                        <div className="font-bebas text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl leading-none mb-4 sm:mb-6 text-foreground">
                           CHOP<span className="text-primary italic">LIFE.</span>
                         </div>
-                        <p className="text-muted-foreground font-display text-xs lg:text-sm tracking-[0.3em] uppercase">Bold West African flavors, beautifully served.</p>
+                        <p className="text-muted-foreground font-display text-[10px] sm:text-xs lg:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase">Bold West African flavors, beautifully served.</p>
                      </div>
                      
-                     <div className="flex flex-col sm:flex-row gap-6 lg:gap-12 items-start sm:items-center">
-                        <a href="mailto:choplifebistrooo@gmail.com" className="font-display text-[9px] lg:text-[11px] font-bold tracking-[0.3em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-3 group">
+                     <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-12 items-start sm:items-center w-full lg:w-auto">
+                        <a href="mailto:choplifebistrooo@gmail.com" className="font-display text-[8px] sm:text-[9px] lg:text-[11px] font-bold tracking-[0.25em] sm:tracking-[0.3em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-2 sm:gap-3 group">
                           <Mail size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                           <span className="hidden sm:inline">choplifebistrooo@gmail.com</span>
                           <span className="sm:hidden">Email</span>
@@ -263,7 +263,7 @@ function Home() {
                           { name: 'TikTok', icon: Music, url: 'https://tiktok.com/@choplifebristroo' },
                           { name: 'Facebook', icon: Facebook, url: 'https://facebook.com/choplifebristroo' }
                         ].map(social => (
-                          <a key={social.name} href={social.url} className="font-display text-[9px] lg:text-[11px] font-bold tracking-[0.3em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-3 group">
+                          <a key={social.name} href={social.url} className="font-display text-[8px] sm:text-[9px] lg:text-[11px] font-bold tracking-[0.25em] sm:tracking-[0.3em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-2 sm:gap-3 group">
                             <social.icon size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                             {social.name}
                             <ExternalLink size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -272,11 +272,11 @@ function Home() {
                      </div>
                   </div>
 
-                  <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-border gap-8">
-                     <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.4em] text-center md:text-left">
+                  <div className="flex flex-col sm:flex-row justify-between items-center pt-8 sm:pt-10 lg:pt-12 border-t border-border gap-4 sm:gap-6">
+                     <div className="text-[9px] sm:text-[10px] font-mono text-muted-foreground uppercase tracking-[0.3em] sm:tracking-[0.4em] text-center sm:text-left">
                         © 2026 CHOPLIFE BISTRO GROUP · DESIGNED FOR THE FUTURE.
                      </div>
-                     <div className="flex gap-8 text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">
+                     <div className="flex gap-4 sm:gap-6 lg:gap-8 text-[9px] sm:text-[10px] font-mono text-muted-foreground uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                         <a href="#" className="hover:text-foreground">Privacy</a>
                         <a href="#" className="hover:text-foreground">Terms</a>
                         <a href="#" className="hover:text-foreground" onClick={(e) => { e.preventDefault(); navigate('/details'); }}>Our Standards</a>

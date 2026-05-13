@@ -7,6 +7,11 @@ export interface NutritionalInfo {
   sodium?: number;
 }
 
+export interface Badge {
+  icon: React.ComponentType<{ className?: string }>;
+  text: string;
+}
+
 export interface MenuItem {
   id: string;
   name: string;
@@ -14,7 +19,7 @@ export interface MenuItem {
   price: number;
   category: string;
   image?: string;
-  badges?: string[];
+  badges?: Badge[];
   isFeatured?: boolean;
   nutritionalInfo?: NutritionalInfo;
 }

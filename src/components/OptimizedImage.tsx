@@ -19,7 +19,7 @@ export default function OptimizedImage({
   priority = false,
   aspectRatio,
   fallback = FALLBACK_IMAGE,
-  sizes,
+  sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw',
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);

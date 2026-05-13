@@ -23,7 +23,7 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'shadow-sm' : ''}`}>
-        <div className={`backdrop-blur-2xl border-b border-border h-16 md:h-20 flex items-center justify-between px-6 md:px-12 transition-colors duration-500 ${isScrolled ? 'bg-background/95' : 'bg-background/80'}`}>
+        <div className={`backdrop-blur-2xl border-b border-border h-14 sm:h-16 md:h-20 flex items-center justify-between px-4 sm:px-6 md:px-12 transition-colors duration-500 ${isScrolled ? 'bg-background/95' : 'bg-background/80'}`}>
           <a 
             href="#home" 
             onClick={(e) => {
@@ -33,11 +33,11 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
             }}
             className="flex items-center group"
           >
-            <img src={choplifeLogo} alt="Choplife Bistro" className="h-16 md:h-[4.5rem] w-auto object-contain" />
+            <img src={choplifeLogo} alt="Choplife Bistro" className="h-12 sm:h-14 md:h-16 lg:h-[4.5rem] w-auto object-contain" />
           </a>
 
           {/* Desktop Category Navigation */}
-          <div className="hidden lg:flex items-center gap-1 overflow-x-auto no-scrollbar max-w-2xl px-4 translate-y-[1px]">
+          <div className="hidden xl:flex items-center gap-1 overflow-x-auto no-scrollbar max-w-2xl px-4 translate-y-[1px]">
             <button
               onClick={() => setView('details')}
               className="px-4 py-2 font-display text-[10px] uppercase font-bold tracking-[0.2em] text-muted hover:text-primary transition-all whitespace-nowrap border-b-2 border-transparent"
@@ -61,13 +61,13 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
             ))}
           </div>
 
-          <div className="flex items-center gap-4 lg:gap-6">
+          <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
             <a 
               href="tel:+2349053063345"
-              className="hidden sm:flex items-center gap-2 font-display text-[11px] font-bold tracking-widest text-muted hover:text-primary transition-colors group"
+              className="hidden md:flex items-center gap-2 font-display text-[10px] sm:text-[11px] font-bold tracking-widest text-muted hover:text-primary transition-colors group"
             >
               <Phone size={13} className="group-hover:text-primary transition-colors" />
-              <span className="hidden md:inline">CALL US</span>
+              <span className="hidden lg:inline">CALL US</span>
             </a>
             
             <ThemeToggle />
@@ -75,7 +75,7 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
             {/* Mobile Toggle */}
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-muted hover:text-foreground transition-colors"
+              className="xl:hidden p-2 sm:p-3 text-muted hover:text-foreground transition-colors active:scale-95"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -91,7 +91,7 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[110] lg:hidden"
+            className="fixed inset-0 z-[110] xl:hidden"
           >
             <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
             <motion.div 
@@ -99,21 +99,21 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 250 }}
-              className="absolute top-0 right-0 bottom-0 w-4/5 max-w-sm bg-background border-l border-border p-8 flex flex-col overflow-y-auto"
+              className="absolute top-0 right-0 bottom-0 w-[85%] sm:w-3/4 max-w-sm bg-background border-l border-border p-6 sm:p-8 flex flex-col overflow-y-auto"
             >
-              <div className="flex justify-between items-center mb-12">
-                <span className="font-bebas text-3xl text-foreground">MENU</span>
-                <button onClick={() => setIsOpen(false)} className="p-2 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close menu">
+              <div className="flex justify-between items-center mb-8 sm:mb-12">
+                <span className="font-bebas text-2xl sm:text-3xl text-foreground">MENU</span>
+                <button onClick={() => setIsOpen(false)} className="p-2 text-muted-foreground hover:text-foreground transition-colors active:scale-95" aria-label="Close menu">
                   <X size={22} />
                 </button>
               </div>
 
-              <div className="flex flex-col gap-4 pb-12">
+              <div className="flex flex-col gap-2 sm:gap-4 pb-8 sm:pb-12">
                 <button
                   onClick={() => { setView('details'); setIsOpen(false); }}
-                  className="group flex items-center justify-between py-4 border-b border-border"
+                  className="group flex items-center justify-between py-3 sm:py-4 border-b border-border active:bg-surface-soft transition-colors"
                 >
-                  <span className="font-bebas text-3xl text-primary uppercase tracking-tight">Our Story</span>
+                  <span className="font-bebas text-2xl sm:text-3xl text-primary uppercase tracking-tight">Our Story</span>
                   <ArrowRight size={18} className="text-primary" />
                 </button>
                 
@@ -126,11 +126,11 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.04 }}
                     className={`
-                      group flex items-center justify-between py-3 border-b border-border/50
+                      group flex items-center justify-between py-2 sm:py-3 border-b border-border/50 active:bg-surface-soft transition-colors
                       ${activeCategory === cat.id ? 'border-primary/30' : ''}
                     `}
                   >
-                    <span className={`font-bebas text-3xl uppercase tracking-tight transition-colors ${activeCategory === cat.id ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>
+                    <span className={`font-bebas text-xl sm:text-2xl lg:text-3xl uppercase tracking-tight transition-colors ${activeCategory === cat.id ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>
                       {cat.name}
                     </span>
                     <ArrowRight size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-all" />
@@ -138,11 +138,11 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
                 ))}
               </div>
 
-              <div className="mt-auto pt-8 border-t border-border flex flex-col gap-4">
-                <a href="tel:+2349053063345" className="w-full py-4 bg-primary text-white font-display text-[11px] font-bold tracking-widest uppercase rounded-xl hover:bg-primary-dark transition-colors text-center block">
+              <div className="mt-auto pt-6 sm:pt-8 border-t border-border flex flex-col gap-3 sm:gap-4">
+                <a href="tel:+2349053063345" className="w-full py-3 sm:py-4 bg-primary text-white font-display text-[10px] sm:text-[11px] font-bold tracking-widest uppercase rounded-xl hover:bg-primary-dark transition-colors text-center block active:scale-[0.98]">
                   BOOK A TABLE
                 </a>
-                <p className="text-center text-muted-foreground font-mono text-[9px] uppercase tracking-[0.2em]">
+                <p className="text-center text-muted-foreground font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.2em]">
                   Mandela Freedom Park, Osogbo
                 </p>
               </div>

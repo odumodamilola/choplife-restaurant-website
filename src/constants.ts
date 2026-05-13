@@ -1,4 +1,5 @@
 import { MenuItem, MenuCategory } from './types';
+import { Star, Flame, Zap, Martini } from 'lucide-react';
 
 // Import local images
 import asunAndFries from './assets/images/asun and fries.png';
@@ -83,7 +84,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 4000,
     category: 'african-dishes',
     image: egusiSoup,
-    badges: ['⭐ CLASSIC'],
+    badges: [{ icon: Star, text: 'CLASSIC' }],
   },
   {
     id: 'ogbono',
@@ -101,7 +102,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'african-dishes',
     image: seafoodOkro,
     isFeatured: true,
-    badges: ['🔥 LUXE'],
+    badges: [{ icon: Flame, text: 'LUXE' }],
   },
   {
     id: 'bitter-leaf-soup',
@@ -168,7 +169,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 5000,
     category: 'rice-class',
     image: ofadaRice,
-    badges: ['🌶️ SPICY'],
+    badges: [{ icon: Zap, text: 'SPICY' }],
   },
   {
     id: 'jambalaya-special-rice',
@@ -635,7 +636,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 5000,
     category: 'drinks',
     image: chapman,
-    badges: ['🍹 POPULAR'],
+    badges: [{ icon: Martini, text: 'POPULAR' }],
   },
   {
     id: 'tutti-frutti',
