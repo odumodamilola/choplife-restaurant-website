@@ -29,6 +29,10 @@ export default function DishCard({ item, onSelect }: DishCardProps) {
           src={item.image || 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop'}
           alt={`${item.name} - West African dish at Choplife Bistro`}
           className="w-full h-full transition-transform duration-700 group-hover:scale-105"
+          width={800}
+          height={600}
+          quality={80}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
         />
         
         {/* Overlay gradient */}
@@ -41,7 +45,7 @@ export default function DishCard({ item, onSelect }: DishCardProps) {
               const Icon = badge.icon;
               return (
                 <span key={index} className="flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 bg-primary/90 backdrop-blur-sm text-white font-display text-[8px] sm:text-[9px] font-bold tracking-[0.15em] rounded-full">
-                  <Icon size={12} />
+                  <Icon className="w-3 h-3" />
                   {badge.text}
                 </span>
               );

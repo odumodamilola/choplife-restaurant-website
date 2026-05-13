@@ -12,12 +12,28 @@ import { MenuItem } from './types';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, MapPin, Instagram, Twitter, Facebook, Music, ExternalLink, Mail } from 'lucide-react';
 import choplifeVideo from './assets/videos/choplifebistroo (@choplifebistroo).mp4';
+import choplifeLogo from './assets/images/Choplife-bistro-logo-04.png';
 
 function Home() {
   const [activeCategory, setActiveCategory] = useState('');
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const navigate = useNavigate();
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  // Preload critical images
+  useEffect(() => {
+    const criticalImages = [
+      'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=85&auto=format&fit=crop',
+    ];
+
+    criticalImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+    });
+  }, []);
 
   useEffect(() => {
     if (selectedItem) {

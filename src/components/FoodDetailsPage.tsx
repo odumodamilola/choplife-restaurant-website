@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowLeft, Clock, Flame, Utensils, Info, CheckCircle2 } from 'lucide-react';
 import { MenuItem } from '../types';
+import OptimizedImage from './OptimizedImage';
 
 interface FoodDetailsPageProps {
   item: MenuItem;
@@ -17,15 +18,15 @@ export default function FoodDetailsPage({ item, onBack }: FoodDetailsPageProps) 
     >
       {/* Hero Header */}
       <div className="relative h-[50vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
-        <motion.img 
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          src={item.image || 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80&auto=format&fit=crop'} 
+        <OptimizedImage
+          src={item.image || 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80&auto=format&fit=crop'}
           alt={`${item.name} - Premium dish at Choplife Bistro Osogbo`}
-          loading="eager"
-          decoding="sync"
-          className="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
+          className="w-full h-full grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
+          priority
+          width={1600}
+          height={900}
+          quality={85}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
         

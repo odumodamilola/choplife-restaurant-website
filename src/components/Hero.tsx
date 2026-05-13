@@ -12,6 +12,10 @@ export default function Hero() {
           alt="Bold West African cuisine at Choplife Bistro"
           className="w-full h-full"
           priority
+          width={1920}
+          height={1080}
+          quality={85}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
