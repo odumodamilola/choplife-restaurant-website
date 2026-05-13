@@ -88,11 +88,11 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
       {/* Search Trigger Button - Desktop */}
       <button
         onClick={() => onOpenChange(true)}
-        className="hidden lg:flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded-full hover:border-primary transition-all group"
+        className="hidden md:flex items-center gap-2 px-3 sm:px-4 py-2 bg-surface border border-border rounded-full hover:border-primary transition-all group"
       >
-        <SearchIcon size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
-        <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Search menu...</span>
-        <kbd className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono text-muted-foreground bg-background border border-border rounded">
+        <SearchIcon size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
+        <span className="text-xs sm:text-sm text-muted-foreground group-hover:text-foreground transition-colors hidden sm:inline">Search menu...</span>
+        <kbd className="hidden lg:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono text-muted-foreground bg-background border border-border rounded">
           ⌘K
         </kbd>
       </button>
@@ -100,7 +100,7 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
       {/* Mobile Search Button */}
       <button
         onClick={() => onOpenChange(true)}
-        className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+        className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors active:scale-95"
         aria-label="Search"
       >
         <SearchIcon size={20} />
@@ -130,37 +130,37 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
               className="relative w-full max-w-4xl bg-background border border-border rounded-2xl shadow-2xl overflow-hidden"
             >
               {/* Search Input */}
-              <div className="flex items-center gap-3 p-4 border-b border-border">
-                <SearchIcon size={20} className="text-muted-foreground" />
+              <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 border-b border-border">
+                <SearchIcon size={18} sm:size={20} className="text-muted-foreground flex-shrink-0" />
                 <input
                   ref={inputRef}
                   type="text"
                   placeholder="Search dishes, ingredients, or categories..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-lg"
+                  className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-base sm:text-lg min-w-0"
                   aria-label="Search menu items"
                 />
                 {query && (
                   <button
                     onClick={handleClear}
-                    className="p-1 hover:bg-surface rounded-full transition-colors"
+                    className="p-1 sm:p-2 hover:bg-surface rounded-full transition-colors flex-shrink-0"
                     aria-label="Clear search"
                   >
-                    <X size={16} className="text-muted-foreground" />
+                    <X size={14} sm:size={16} className="text-muted-foreground" />
                   </button>
                 )}
-                <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono text-muted-foreground bg-surface border border-border rounded">
+                <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono text-muted-foreground bg-surface border border-border rounded flex-shrink-0">
                   ESC
                 </kbd>
               </div>
 
               {/* Search Results */}
-              <div className="max-h-[60vh] overflow-y-auto" ref={resultsContainerRef}>
+              <div className="max-h-[50vh] sm:max-h-[60vh] overflow-y-auto" ref={resultsContainerRef}>
                 {!query && (
-                  <div className="p-8 text-center">
-                    <SearchIcon size={48} className="mx-auto text-muted-foreground/30 mb-4" />
-                    <p className="text-muted-foreground text-sm">
+                  <div className="p-6 sm:p-8 text-center">
+                    <SearchIcon size={36} sm:size={48} className="mx-auto text-muted-foreground/30 mb-3 sm:mb-4" />
+                    <p className="text-muted-foreground text-sm sm:text-base">
                       Start typing to search our menu
                     </p>
                     <p className="text-muted-foreground/60 text-xs mt-2">
@@ -170,9 +170,9 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
                 )}
 
                 {query && results.length === 0 && (
-                  <div className="p-8 text-center">
-                    <X size={48} className="mx-auto text-muted-foreground/30 mb-4" />
-                    <p className="text-muted-foreground text-sm">
+                  <div className="p-6 sm:p-8 text-center">
+                    <X size={36} sm:size={48} className="mx-auto text-muted-foreground/30 mb-3 sm:mb-4" />
+                    <p className="text-muted-foreground text-sm sm:text-base">
                       No menu items found for "{query}"
                     </p>
                     <p className="text-muted-foreground/60 text-xs mt-2">
@@ -182,9 +182,9 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
                 )}
 
                 {query && results.length > 0 && (
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-4 px-2">
-                      <span className="text-xs font-display font-bold tracking-[0.2em] text-muted-foreground uppercase">
+                  <div className="p-3 sm:p-4">
+                    <div className="flex items-center justify-between mb-3 sm:mb-4 px-1 sm:px-2">
+                      <span className="text-[10px] sm:text-xs font-display font-bold tracking-[0.2em] text-muted-foreground uppercase">
                         {results.length} result{results.length !== 1 ? 's' : ''} found
                       </span>
                       <button
@@ -194,7 +194,7 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
                         Clear
                       </button>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                       {results.map((item) => (
                         <DishCard
                           key={item.id}
