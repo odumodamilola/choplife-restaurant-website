@@ -7,6 +7,7 @@ import DishCard from './components/DishCard';
 import DetailsPage from './components/DetailsPage';
 import FoodDetailsPage from './components/FoodDetailsPage';
 import NotFoundPage from './components/NotFoundPage';
+import SearchModal from './components/Search';
 import { MENU_CATEGORIES, MENU_ITEMS } from './constants';
 import { MenuItem } from './types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -17,6 +18,7 @@ import choplifeLogo from './assets/images/Choplife-bistro-logo-04.png';
 function Home() {
   const [activeCategory, setActiveCategory] = useState('');
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const navigate = useNavigate();
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
@@ -83,7 +85,14 @@ function Home() {
     >
       <Cursor />
       <div className="noise-overlay" />
-      <Navbar activeCategory={activeCategory} setView={() => navigate('/')} />
+      <Navbar 
+        activeCategory={activeCategory} 
+        setView={() => navigate('/')} 
+        isSearchOpen={isSearchOpen}
+        onSearchOpenChange={setIsSearchOpen}
+        menuItems={MENU_ITEMS}
+        onSelectItem={setSelectedItem}
+      />
       
       <AnimatePresence mode="wait">
         {selectedItem ? (

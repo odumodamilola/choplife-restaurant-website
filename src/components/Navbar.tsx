@@ -2,15 +2,21 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowRight, Phone } from 'lucide-react';
 import { MENU_CATEGORIES } from '../constants';
+import { MenuItem } from '../types';
 import ThemeToggle from './ThemeToggle';
+import SearchModal from './Search';
 import choplifeLogo from '../assets/images/Choplife-bistro-logo-04.png';
 
 interface NavbarProps {
   activeCategory: string;
   setView: (view: 'home' | 'details') => void;
+  isSearchOpen?: boolean;
+  onSearchOpenChange?: (open: boolean) => void;
+  menuItems?: MenuItem[];
+  onSelectItem?: (item: MenuItem) => void;
 }
 
-export default function Navbar({ activeCategory, setView }: NavbarProps) {
+export default function Navbar({ activeCategory, setView, isSearchOpen = false, onSearchOpenChange, menuItems = [], onSelectItem }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -62,6 +68,31 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
+            {/* Search Trigger - Desktop */}
+            {onSearchOpenChange && (
+              <button
+                onClick={() => onSearchOpenChange(true)}
+                className="hidden lg:flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded-full hover:border-primary transition-all group"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground group-hover:text-primary transition-colors"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Search menu...</span>
+                <kbd className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono text-muted-foreground bg-background border border-border rounded">
+                  ⌘K
+                </kbd>
+              </button>
+            )}
+
+            {/* Search Trigger - Mobile */}
+            {onSearchOpenChange && (
+              <button
+                onClick={() => onSearchOpenChange(true)}
+                className="lg:hidden p-2 text-muted hover:text-foreground transition-colors"
+                aria-label="Search"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </button>
+            )}
+
             <a 
               href="tel:+2349053063345"
               className="hidden md:flex items-center gap-2 font-display text-[10px] sm:text-[11px] font-bold tracking-widest text-muted hover:text-primary transition-colors group"
@@ -150,6 +181,16 @@ export default function Navbar({ activeCategory, setView }: NavbarProps) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Search Modal */}
+      {onSearchOpenChange && onSelectItem && (
+        <SearchModal
+          menuItems={menuItems}
+          onSelectItem={onSelectItem}
+          isOpen={isSearchOpen}
+          onOpenChange={onSearchOpenChange}
+        />
+      )}
     </>
   );
 }

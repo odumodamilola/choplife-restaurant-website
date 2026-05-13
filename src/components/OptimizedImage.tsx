@@ -11,7 +11,6 @@ interface OptimizedImageProps {
   width?: number;
   height?: number;
   quality?: number;
-  blurDataURL?: string;
 }
 
 const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop';
@@ -31,19 +30,6 @@ const getAdaptiveThreshold = () => {
   }
   // Default threshold for fast connections
   return '200px';
-};
-
-// Generate blur placeholder for local images
-const generateBlurPlaceholder = (width: number, height: number): string => {
-  const canvas = document.createElement('canvas');
-  canvas.width = 10;
-  canvas.height = 10;
-  const ctx = canvas.getContext('2d');
-  if (ctx) {
-    ctx.fillStyle = '#f4f4f5';
-    ctx.fillRect(0, 0, 10, 10);
-  }
-  return canvas.toDataURL('image/jpeg', 0.1);
 };
 
 // Generate responsive srcset for local images
@@ -71,23 +57,12 @@ export default function OptimizedImage({
   width = 800,
   height = 600,
   quality = 80,
-  blurDataURL,
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
-  const [isLoading, setIsLoading] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
   const imgTagRef = useRef<HTMLImageElement>(null);
-
-  // Generate blur placeholder once
-  const generatedBlurData = useMemo(() => {
-    if (blurDataURL) return blurDataURL;
-    if (!src.includes('unsplash.com')) {
-      return generateBlurPlaceholder(width, height);
-    }
-    return null;
-  }, [blurDataURL, src, width, height]);
 
   // Generate optimized srcset
   const srcset = useMemo(() => generateSrcset(src, width, quality), [src, width, quality]);
@@ -105,7 +80,6 @@ export default function OptimizedImage({
   useEffect(() => {
     if (priority) {
       setIsInView(true);
-      setIsLoading(true);
       return;
     }
 
@@ -114,7 +88,6 @@ export default function OptimizedImage({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
-          setIsLoading(true);
           observer.disconnect();
         }
       },
@@ -131,7 +104,6 @@ export default function OptimizedImage({
   // Handle image load
   const handleLoad = () => {
     setIsLoaded(true);
-    setIsLoading(false);
   };
 
   // Handle image error
@@ -139,7 +111,6 @@ export default function OptimizedImage({
     if (!hasError) {
       setHasError(true);
       setIsLoaded(false);
-      setIsLoading(false);
     }
   };
 
@@ -149,25 +120,6 @@ export default function OptimizedImage({
       className={`relative overflow-hidden bg-surface-soft ${className}`}
       style={aspectRatio ? { aspectRatio } : undefined}
     >
-      {/* Skeleton/Blur placeholder */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br from-surface-soft to-surface transition-opacity duration-500 ${
-          isLoaded ? 'opacity-0' : 'opacity-100'
-        }`}
-        style={{
-          backgroundImage: generatedBlurData ? `url(${generatedBlurData})` : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'blur(20px)',
-          transform: 'scale(1.1)',
-        }}
-      />
-
-      {/* Shimmer loading effect */}
-      {isLoading && !isLoaded && (
-        <div className="absolute inset-0 shimmer" />
-      )}
-
       {/* Actual image */}
       {isInView && (
         <img
