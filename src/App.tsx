@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import DishCard from './components/DishCard';
 import DetailsPage from './components/DetailsPage';
 import FoodDetailsPage from './components/FoodDetailsPage';
+import NotFoundPage from './components/NotFoundPage';
 import { MENU_CATEGORIES, MENU_ITEMS } from './constants';
 import { MenuItem } from './types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -320,6 +321,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/food/:id" element={<FoodDetailsRoute />} />
           <Route path="/details" element={<DetailsPage onBack={() => window.history.back()} />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </BrowserRouter>
