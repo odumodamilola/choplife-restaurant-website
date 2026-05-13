@@ -4,13 +4,17 @@ import { MenuItem, MenuCategory } from './types';
 import afangSoup from './assets/images/afang-soup.png';
 import basmatiRice from './assets/images/basmati-rice.png';
 import bbqCroakerFish from './assets/images/bbq-croaker-fish.png';
+import beefPepperSoup from './assets/images/beef-pepper-soup.png';
 import bitterleafSoup from './assets/images/biterleaf-soup.png';
 import chickenBreast from './assets/images/chicken-breast.png';
+import chickenPepper from './assets/images/chicken-pepper.png';
 import chickenSandwich from './assets/images/chicken-sandwitch.png';
 import chineseRice from './assets/images/chinese-rice.png';
 import coconutRice from './assets/images/coconut-rice.png';
 import cowtailPepperSoup from './assets/images/cowtail-pepper soup.png';
+import eaglesNest from './assets/images/eagles-nest.png';
 import edikangSoup from './assets/images/edikang-soup.png';
+import familyPlatter from './assets/images/family-platter.png';
 import friedRice from './assets/images/fried-rice.png';
 import egusiSoup from './assets/images/egusi-soup.png';
 import eforiro from './assets/images/eforiro.png';
@@ -19,6 +23,7 @@ import goatMeatPepperSoup from './assets/images/goat meat pepper soup.png';
 import ogbonoSoup from './assets/images/ogbono-soup.png';
 import okroSoup from './assets/images/okro-soup.png';
 import isiEwu from './assets/images/isi-ewu.png';
+import jambalayaPasta from './assets/images/jambalaya-pasta.png';
 import jambalayaSpecialRice from './assets/images/jambalaya-special-rice.png';
 import jollofRice from './assets/images/jollof-rice.png';
 import seafoodPlatter from './assets/images/naija -seafood - platter.png';
@@ -29,8 +34,11 @@ import pepperedTurkey from './assets/images/peppered-turkey.png';
 import puffPuff from './assets/images/puff puff.png';
 import pepperedSnail from './assets/images/peppered snail.png';
 import seafoodOkro from './assets/images/seafood-okro.png';
+import smallChops from './assets/images/small-chops.png';
 import stirFryRice from './assets/images/stir-fry-rice.png';
+import turkeyPepper from './assets/images/turkey-pepper.png';
 import seafoodPepperSoup from './assets/images/seafood-pepper-soup.png';
+import mixedPlatter from './assets/images/mixed-platter.png';
 import nkwobi from './assets/images/nkwobi.png';
 import nativeRice from './assets/images/traditional-native-rice.png';
 import ofadaRice from './assets/images/traditional-ofada-rice.png';
@@ -313,7 +321,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'A variety of bite-sized Nigerian appetizers.',
     price: 5000,
     category: 'starters-fingers',
-    image: 'https://media.gettyimages.com/id/2207324086/photo/assorted-nigerian-small-chops-platter-served-at-a-social-event.jpg?s=2048x2048&w=gi&k=20&c=L-v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v=',
+    image: smallChops,
   },
   {
     id: 'chicken-sandwich',
@@ -363,7 +371,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tender Chicken Cooked in a Flavorful, Spicy and Broth Infused with Peppers and Herbs. Served with Bread Roll.',
     price: 6000,
     category: 'pepper-soups',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/Assorted_meat_pepper_soup_at_Lagos_Island.jpg',
+    image: chickenPepper,
   },
   {
     id: 'seafood-pepper-soup',
@@ -380,7 +388,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Diced Turkey Cooked in a Flavorful, Spicy and Broth Infused with Peppers and Herbs. Served with Bread Roll.',
     price: 8000,
     category: 'pepper-soups',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/Assorted_meat_pepper_soup_at_Lagos_Island.jpg',
+    image: turkeyPepper,
   },
   {
     id: 'gizzard-pepper-soup',
@@ -396,7 +404,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tender Beef Strips Simmered in a Spicy, Aromatic Broth Infused with Peppers, Spices and Herbs.',
     price: 5000,
     category: 'pepper-soups',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/Assorted_meat_pepper_soup_at_Lagos_Island.jpg',
+    image: beefPepperSoup,
   },
 
   // Platters
@@ -406,7 +414,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: '2 Chicken Laps, 2 Sweet Corn, 12 Puff-Puff, 4 Springs, 1 BBQ Fish, 5 Samosa, 5 Sausage Yam and Plantain.',
     price: 50000,
     category: 'platters',
-    image: 'https://media.gettyimages.com/id/2207324086/photo/assorted-nigerian-small-chops-platter-served-at-a-social-event.jpg?s=2048x2048&w=gi&k=20&c=L-v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v=',
+    image: familyPlatter,
     isFeatured: true,
   },
   {
@@ -424,7 +432,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Giz Dodo, 1 Grill Prawns, Chicken, Pasta Jollof Special Rice.',
     price: 60000,
     category: 'platters',
-    image: 'https://media.gettyimages.com/id/2207324086/photo/assorted-nigerian-small-chops-platter-served-at-a-social-event.jpg?s=2048x2048&w=gi&k=20&c=L-v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v=',
+    image: mixedPlatter,
   },
   {
     id: 'eagles-nest-platter',
@@ -432,7 +440,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Grilled Chicken, Grilled Turkey, Asun, Sausage, Corn, Plantain & Yam Blocks.',
     price: 56000,
     category: 'platters',
-    image: 'https://media.gettyimages.com/id/2207324086/photo/assorted-nigerian-small-chops-platter-served-at-a-social-event.jpg?s=2048x2048&w=gi&k=20&c=L-v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v_v=',
+    image: eaglesNest,
   },
 
   // Pasta & Noodles
@@ -442,7 +450,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Iconic Jambalaya Tradition Spaghetti Explodes with the Trinity of Onions, Celery and Bell Peppers Sautéed In In Spicy Sausage and Shrimps.',
     price: 10000,
     category: 'pasta-noodles',
-    image: 'https://images.unsplash.com/photo-1546171753-97d7676e4602?w=800&q=80&auto=format&fit=crop',
+    image: jambalayaPasta,
   },
   {
     id: 'jollof-spaghetti',
@@ -490,7 +498,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Iconic jambalaya special spaghetti explodes with the trinity of onions, celery and bell peppers sauteed in spicy sausage, chicken breast and shrimps.',
     price: 15000,
     category: 'pasta-noodles',
-    image: 'https://images.unsplash.com/photo-1546171753-97d7676e4602?w=800&q=80&auto=format&fit=crop',
+    image: jambalayaPasta,
   },
 
   // Sauces & Sides
