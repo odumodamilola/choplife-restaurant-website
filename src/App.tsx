@@ -83,7 +83,6 @@ function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <Cursor />
       <div className="noise-overlay" />
       <Navbar 
         activeCategory={activeCategory} 
@@ -342,6 +341,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="relative">
+        <Cursor />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/food/:id" element={<FoodDetailsRoute />} />

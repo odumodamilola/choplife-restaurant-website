@@ -98,7 +98,7 @@
   }
 
   .cursor-ring {
-    @apply fixed w-10 h-10 border border-primary/40 rounded-full pointer-events-none z-[99998] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out;
+    @apply fixed w-10 h-10 border-2 border-primary/40 rounded-full pointer-events-none z-[99998] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out;
   }
 
   .noise-overlay {
@@ -154,7 +154,7 @@ img {
 
 @media (pointer: coarse) {
   body { cursor: auto; }
-  .cursor-dot, .cursor-ring { display: none; }
+  .cursor-dot, .cursor-ring { display: block; }
 }
 
 /* Reduced motion preference */
