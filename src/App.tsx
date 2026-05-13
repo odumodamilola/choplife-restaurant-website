@@ -212,16 +212,14 @@ export default function App() {
                           </div>
                         </div>
 
-                        <div className="h-[400px] lg:h-auto bg-surface-soft flex items-center justify-center relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-1000">
-                           <span className="font-bebas text-[15vmax] text-muted-foreground/5 select-none">MAPPING</span>
-                           {/* Floating Map Marker */}
-                           <motion.div 
-                              animate={{ y: [0, -20, 0] }}
-                              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                              className="absolute text-primary"
-                           >
-                             <MapPin size={100} strokeWidth={1} />
-                           </motion.div>
+                        <div className="h-[400px] lg:h-auto relative overflow-hidden">
+                           <iframe 
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.079921880411!2d4.5424794740078855!3d7.78135079223831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103787beac10191b%3A0xe98efc513cebbdb7!2sChoplife%20Bistro%20Restaurants%20Osogbo!5e0!3m2!1sen!2sng!4v1778665418796!5m2!1sen!2sng" 
+                              className="w-full h-full border-0"
+                              allowFullScreen="" 
+                              loading="lazy" 
+                              referrerPolicy="no-referrer-when-downgrade"
+                           />
                         </div>
                       </div>
                    </div>

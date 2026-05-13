@@ -1,13 +1,19 @@
 import { MenuItem, MenuCategory } from './types';
 
 // Import local images
+import asunAndFries from './assets/images/asun and fries.png';
 import afangSoup from './assets/images/afang-soup.png';
 import basmatiRice from './assets/images/basmati-rice.png';
+import beefSuya from './assets/images/beef-suya.png';
 import bbqCroakerFish from './assets/images/bbq-croaker-fish.png';
 import beefPepperSoup from './assets/images/beef-pepper-soup.png';
 import bitterleafSoup from './assets/images/biterleaf-soup.png';
 import chickenBreast from './assets/images/chicken-breast.png';
+import chickenCreamy from './assets/images/chicken-creamy.png';
+import chickenCurrySauce from './assets/images/chicken-curry-sauce.png';
 import chickenPepper from './assets/images/chicken-pepper.png';
+import chickenClubSandwich from './assets/images/chicken-club-sandwich.png';
+import chapman from './assets/images/chapman.png';
 import chickenSandwich from './assets/images/chicken-sandwitch.png';
 import chineseRice from './assets/images/chinese-rice.png';
 import coconutRice from './assets/images/coconut-rice.png';
@@ -15,25 +21,39 @@ import cowtailPepperSoup from './assets/images/cowtail-pepper soup.png';
 import eaglesNest from './assets/images/eagles-nest.png';
 import edikangSoup from './assets/images/edikang-soup.png';
 import familyPlatter from './assets/images/family-platter.png';
+import freshOrangeJuice from './assets/images/fresh-orange-juice.png';
 import friedRice from './assets/images/fried-rice.png';
+import plantain from './assets/images/plantain.png';
+import frenchFries from './assets/images/french-fries.png';
+import freshPineappleJuice from './assets/images/fresh-pineapple-juice.png';
+import sweetPotatoes from './assets/images/sweet-potatoes.png';
+import tuttiFrutti from './assets/images/tutti-frutti.png';
+import yamFries from './assets/images/yam-fries.png';
+import grilledChickenChips from './assets/images/grilled-chicken and chips.png';
 import egusiSoup from './assets/images/egusi-soup.png';
 import eforiro from './assets/images/eforiro.png';
 import gizDodo from './assets/images/giz-dodo.png';
+import grilledTurkeyChips from './assets/images/grilled-turkey and chips.png';
 import goatMeatPepperSoup from './assets/images/goat meat pepper soup.png';
+import italianClassicPasta from './assets/images/italian classic pasta.png';
+import italianStirFry from './assets/images/italian-stir-fry.png';
 import ogbonoSoup from './assets/images/ogbono-soup.png';
 import okroSoup from './assets/images/okro-soup.png';
 import isiEwu from './assets/images/isi-ewu.png';
 import jambalayaPasta from './assets/images/jambalaya-pasta.png';
 import jambalayaSpecialRice from './assets/images/jambalaya-special-rice.png';
 import jollofRice from './assets/images/jollof-rice.png';
+import jollofSpaghetti from './assets/images/jollof-spaghetti.png';
 import seafoodPlatter from './assets/images/naija -seafood - platter.png';
 import pepperedBeef from './assets/images/peppered-beef.png';
 import pepperedChicken from './assets/images/peppered-chicken.png';
+import pepperedGoat from './assets/images/peppered-goat.png';
 import pepperedGizzard from './assets/images/pepperd-red-gizzard.png';
 import pepperedTurkey from './assets/images/peppered-turkey.png';
 import puffPuff from './assets/images/puff puff.png';
 import pepperedSnail from './assets/images/peppered snail.png';
 import seafoodOkro from './assets/images/seafood-okro.png';
+import singaporianRice from './assets/images/singaporrian -rice.png';
 import smallChops from './assets/images/small-chops.png';
 import stirFryRice from './assets/images/stir-fry-rice.png';
 import turkeyPepper from './assets/images/turkey-pepper.png';
@@ -257,7 +277,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Savor the Flavor, Spicy Cooked Goat Meat Delight to Perfection in a Rich, Aromatic Pepper Sauce.',
     price: 5000,
     category: 'starters-fingers',
-    image: 'https://cheflolaskitchen.com/wp-content/uploads/2023/01/Suya-1.jpg',
+    image: pepperedGoat,
   },
   {
     id: 'nkwobi',
@@ -458,7 +478,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Nigeria Beloved Jollof Spaghetti Tossed In a Bold, Smoky Tomato Sauce Crafted from Bell Peppers, Scotch Bonnet Chili, Onions and Garlic.',
     price: 4000,
     category: 'pasta-noodles',
-    image: 'https://images.pexels.com/photos/954677/pexels-photo-954677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: jollofSpaghetti,
   },
   {
     id: 'chicken-creamy-pasta',
@@ -466,7 +486,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tender Grilled Chicken Breast with al Dente Penne in Luscious, Velvety Sauce of Heavy Cream and Cheese. Tossed with Sun Dried Tomatoes, Spinach and Mushroom.',
     price: 10000,
     category: 'pasta-noodles',
-    image: chickenBreast,
+    image: chickenCreamy,
   },
   {
     id: 'singaporian-noodles',
@@ -474,7 +494,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Stir-Fry Medley of Thin Rice Vermicelli Noodles Dance with Shrimp, Bell Peppers, Onions and Bean Sprouts in a Wok Tossed with Sesame Oil.',
     price: 10000,
     category: 'pasta-noodles',
-    image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=80&auto=format&fit=crop',
+    image: singaporianRice,
   },
   {
     id: 'spaghetti-bolognese',
@@ -482,7 +502,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Timeless Italian Classic Pasta, Low-Simmered Ground Beef in a Rich Velvety Sauce, Diced Carrot, Celery and Onions.',
     price: 10000,
     category: 'pasta-noodles',
-    image: 'https://images.unsplash.com/photo-1546171753-97d7676e4602?w=800&q=80&auto=format&fit=crop',
+    image: italianClassicPasta,
   },
   {
     id: 'stir-fry-pasta',
@@ -490,7 +510,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Italian Pasta with Flash-Tossed of Peas, Shredded Carrots, Mushrooms and Tender Chicken. Coated in a Glossy Glaze of Soy Sauce.',
     price: 10000,
     category: 'pasta-noodles',
-    image: 'https://images.unsplash.com/photo-1546171753-97d7676e4602?w=800&q=80&auto=format&fit=crop',
+    image: italianStirFry,
   },
   {
     id: 'jambalaya-special-spaghetti',
@@ -516,7 +536,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tender chunks chicken thigh, slow-simmered in a fragrant coconut milk, curry infused with turmeric and a medley of warming spices. Served with fluffy Basmatic rice.',
     price: 15000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c2?w=800&q=80&auto=format&fit=crop',
+    image: chickenCurrySauce,
   },
   {
     id: 'yam-fries',
@@ -524,7 +544,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Crispy golden fried yam strips, a perfect side for any meal.',
     price: 2000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1518013431117-eb1465fd5752?w=800&q=80&auto=format&fit=crop',
+    image: yamFries,
   },
   {
     id: 'plantain',
@@ -532,7 +552,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Sweet, ripe fried plantain slices (Dodo).',
     price: 2000,
     category: 'sauces-sides',
-    image: 'https://www.shutterstock.com/shutterstock/photos/1844329760/display_1500/stock-photo-jollof-rice-with-fried-banana-baked-chicken-rice-with-tomatoes-onions-spices-traditional-1844329760.jpg',
+    image: plantain,
   },
   {
     id: 'sweet-potato-fries',
@@ -540,7 +560,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Crispy fried sweet potato strips.',
     price: 2000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1518013431117-eb1465fd5752?w=800&q=80&auto=format&fit=crop',
+    image: sweetPotatoes,
   },
   {
     id: 'french-fries',
@@ -548,7 +568,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Classic golden crispy potato fries.',
     price: 3500,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1518013431117-eb1465fd5752?w=800&q=80&auto=format&fit=crop',
+    image: frenchFries,
   },
   {
     id: 'asun-fries',
@@ -556,7 +576,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Spicy grilled goat meat paired with crispy fries.',
     price: 7000,
     category: 'sauces-sides',
-    image: 'https://cheflolaskitchen.com/wp-content/uploads/2023/01/Suya-1.jpg',
+    image: asunAndFries,
   },
   {
     id: 'beef-suya',
@@ -564,7 +584,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Traditional spiced grilled beef skewers.',
     price: 6000,
     category: 'sauces-sides',
-    image: 'https://cheflolaskitchen.com/wp-content/uploads/2023/01/Suya-1.jpg',
+    image: beefSuya,
   },
   {
     id: 'chicken-club-sandwich',
@@ -572,7 +592,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Triple-decker sandwich with chicken, with a side of chips.',
     price: 12000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1562967916-eb82221dfb44?w=800&q=80&auto=format&fit=crop',
+    image: chickenClubSandwich,
   },
   {
     id: 'grilled-chicken-chips',
@@ -580,7 +600,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Savory grilled chicken served with crispy golden chips.',
     price: 8000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1562967916-eb82221dfb44?w=800&q=80&auto=format&fit=crop',
+    image: grilledChickenChips,
   },
   {
     id: 'grilled-turkey-chips',
@@ -588,7 +608,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Savory grilled turkey served with crispy golden chips.',
     price: 9000,
     category: 'sauces-sides',
-    image: 'https://cheflolaskitchen.com/wp-content/uploads/2023/01/Suya-1.jpg',
+    image: grilledTurkeyChips,
   },
 
   // Drinks
@@ -598,7 +618,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Freshly squeezed orange juice.',
     price: 2000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&q=80&auto=format&fit=crop',
+    image: freshOrangeJuice,
   },
   {
     id: 'fresh-pineapple-juice',
@@ -606,7 +626,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Freshly squeezed pineapple juice.',
     price: 2000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&q=80&auto=format&fit=crop',
+    image: freshPineappleJuice,
   },
   {
     id: 'chapman',
@@ -614,7 +634,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Nigeria\'s beloved non-alcoholic cocktail with Fanta, Sprite, bitters and fresh citrus.',
     price: 5000,
     category: 'drinks',
-    image: 'https://yummymedley.com/wp-content/uploads/2015/05/Nigerian-Chapman-Drink-1.jpg',
+    image: chapman,
     badges: ['🍹 POPULAR'],
   },
   {
@@ -623,6 +643,6 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'A refreshing mixed fruit drink.',
     price: 3000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&q=80&auto=format&fit=crop',
+    image: tuttiFrutti,
   },
 ];
