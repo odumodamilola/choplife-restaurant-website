@@ -63,16 +63,40 @@ import mixedPlatter from './assets/images/mixed-platter.png';
 import nkwobi from './assets/images/nkwobi.png';
 import nativeRice from './assets/images/traditional-native-rice.png';
 import ofadaRice from './assets/images/traditional-ofada-rice.png';
+import beansWithYam from './assets/images/beans-with-yam.png';
+import burgerImg from './assets/images/burger.png';
+import cakeParfait from './assets/images/cake-parfait.png';
+import chilliChicken from './assets/images/chilli-chicken.png';
+import chocolateCake from './assets/images/chocolate-cake.png';
+import coleslawImg from './assets/images/coleslaw.png';
+import custardMoimoi from './assets/images/custard-moimoi.png';
+import ewaAgoyinPlantain from './assets/images/Ewa-Agoyin-with-plantain.png';
+import friedYamSauce from './assets/images/Fried-yam-with-sauce.png';
+import smokedCatfish from './assets/images/smoked-catfish.png';
+import pancakeBurger from './assets/images/pancake-burger.png';
+import parfait from './assets/images/parfait.png';
+import prawnImg from './assets/images/prawn.png';
+import seafoodPlatterImg from './assets/images/seafood-platter.png';
+import springrollSalad from './assets/images/spingroll-salad.png';
+import spongeCake from './assets/images/sponge-cake.png';
+import toastedBreadVeg from './assets/images/toasted-bread-with-veg.png';
+import toastedBread from './assets/images/toasted-bread.png';
+import tomatoePizza from './assets/images/tomatoe-pizza.png';
+import vanillaCake from './assets/images/vanilla-cake.png';
+import waffleBerries from './assets/images/waffle-top-with-berries.png';
+import whiteRicePepperMix from './assets/images/white-rice-with-pepper-mix.png';
+import whiteRiceSauce from './assets/images/white-rice-with-sauce.png';
+import yamAndEgg from './assets/images/yam-and-egg.png';
 
 export const MENU_CATEGORIES: MenuCategory[] = [
-  { id: 'african-dishes', name: 'Original Kitchen', label: 'Category 01', count: 8 },
-  { id: 'rice-class', name: 'Golden Grains', label: 'Category 02', count: 12 },
-  { id: 'starters-fingers', name: 'Soulful Starters', label: 'Category 03', count: 14 },
-  { id: 'pepper-soups', name: 'Spice & Broth', label: 'Category 04', count: 8 },
-  { id: 'platters', name: 'Grand Platters', label: 'Category 05', count: 4 },
-  { id: 'pasta-noodles', name: 'Modern Pasta', label: 'Category 06', count: 7 },
-  { id: 'sauces-sides', name: 'Sauces & Sides', label: 'Category 07', count: 12 },
-  { id: 'drinks', name: 'Signature Sips', label: 'Category 08', count: 4 },
+  { id: 'african-dishes', name: 'Original Kitchen', label: 'Category 01', count: 13 },
+  { id: 'rice-class', name: 'Golden Grains', label: 'Category 02', count: 16 },
+  { id: 'starters-fingers', name: 'Soulful Starters', label: 'Category 03', count: 24 },
+  { id: 'pepper-soups', name: 'Spice & Broth', label: 'Category 04', count: 11 },
+  { id: 'platters', name: 'Grand Platters', label: 'Category 05', count: 5 },
+  { id: 'pasta-noodles', name: 'Modern Pasta', label: 'Category 06', count: 8 },
+  { id: 'sauces-sides', name: 'Sauces & Sides', label: 'Category 07', count: 18 },
+  { id: 'drinks', name: 'Signature Sips', label: 'Category 08', count: 16 },
 ];
 
 export const MENU_ITEMS: MenuItem[] = [
@@ -242,7 +266,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tropical Thai-Inspired Delight of Jasmine Rice into Sweet and Savory Bliss, Hollowed-Out Pineapple Halves Brim with Diced Pineapple Crunch and Tender Shrimps and Chicken.',
     price: 10000,
     category: 'rice-class',
-    image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800&q=80&auto=format&fit=crop',
+    image: pineAppleRice,
   },
   {
     id: 'ofada-rice-sauce-luxe',
@@ -355,7 +379,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'White Rice with Fried and Delicious Pepper Mix Topped with Chicken or Beef.',
     price: 10000,
     category: 'rice-class',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&q=80&auto=format&fit=crop',
+    image: whiteRiceSauce,
   },
   {
     id: 'white-rice-pepper-mix-turkey',
@@ -363,7 +387,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'White Rice with Fried and Delicious Pepper Mix Topped with Fried Turkey.',
     price: 12000,
     category: 'rice-class',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&q=80&auto=format&fit=crop',
+    image: whiteRiceSauce,
   },
   {
     id: 'white-rice-choplife-pepper-mix',
@@ -371,7 +395,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'White Rice with Choplife Spicy Pepper Mix (Pepper Mix, Locust Beans, Smoked Fish, Ponmo).',
     price: 15000,
     category: 'rice-class',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&q=80&auto=format&fit=crop',
+    image: whiteRiceSauce,
   },
   {
     id: 'choplife-signature-meat',
@@ -388,7 +412,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Traditional Nigerian Beans cooked in spicy palm oil sauce, served with fried plantain.',
     price: 5000,
     category: 'rice-class',
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80&auto=format&fit=crop',
+    image: ewaAgoyinPlantain,
   },
   {
     id: 'ewa-agoyin-yam',
@@ -396,7 +420,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Traditional Nigerian Beans cooked in spicy palm oil sauce, served with boiled yam.',
     price: 6500,
     category: 'rice-class',
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80&auto=format&fit=crop',
+    image: ewaAgoyinPlantain,
   },
   {
     id: 'stir-fry-rice',
@@ -528,7 +552,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Juicy burger made with premium beef and fresh toppings.',
     price: 8000,
     category: 'starters-fingers',
-    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80&auto=format&fit=crop',
+    image: burgerImg,
   },
   {
     id: 'springroll-salad',
@@ -536,7 +560,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Crispy vegetable springrolls served with fresh salad. Vegetable/Vegan option available.',
     price: 12000,
     category: 'starters-fingers',
-    image: 'https://images.unsplash.com/photo-1604909052743-94e838e6a48f?w=800&q=80&auto=format&fit=crop',
+    image: springrollSalad,
   },
   {
     id: 'garlic-butter-prawn',
@@ -544,7 +568,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Prawns cooked in delicious garlic butter sauce.',
     price: 14000,
     category: 'starters-fingers',
-    image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=800&q=80&auto=format&fit=crop',
+    image: prawnImg,
   },
 
   // Pepper Soups
@@ -764,7 +788,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tender, Slow-Cooked Chicken Breast, Delicately Shredded and Simmered in a Savory Blend of Smoky Chipotle Served with Steamed Basmati Rice.',
     price: 10000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=800&q=80&auto=format&fit=crop',
+    image: chilliChicken,
   },
   {
     id: 'chicken-curry',
@@ -844,7 +868,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Fresh and crunchy coleslaw salad.',
     price: 1000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1625943553852-781c6dd46faa?w=800&q=80&auto=format&fit=crop',
+    image: coleslawImg,
   },
   {
     id: 'asun-fries',
@@ -953,7 +977,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Rich chocolate cake topped with whipped cream.',
     price: 14500,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80&auto=format&fit=crop',
+    image: chocolateCake,
   },
   {
     id: 'sponge-cake',
@@ -961,7 +985,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Light and fluffy sponge cake topped with melted chocolate.',
     price: 14500,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80&auto=format&fit=crop',
+    image: spongeCake,
   },
   {
     id: 'waffles-berries',
@@ -969,7 +993,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Crispy waffles topped with fresh berries.',
     price: 10000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=800&q=80&auto=format&fit=crop',
+    image: waffleBerries,
   },
   {
     id: 'granola-parfait',
@@ -977,7 +1001,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Healthy and delicious granola parfait.',
     price: 5000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?w=800&q=80&auto=format&fit=crop',
+    image: parfait,
   },
   {
     id: 'cake-parfait',
@@ -985,7 +1009,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Delicious cake parfait.',
     price: 5000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?w=800&q=80&auto=format&fit=crop',
+    image: parfait,
   },
 
   // Protein Extras
@@ -995,7 +1019,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Premium smoked dry catfish.',
     price: 5000,
     category: 'starters-fingers',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80&auto=format&fit=crop',
+    image: smokedCatfish,
   },
   {
     id: 'peppered-gizzard-extra',
@@ -1077,7 +1101,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Classic plain vanilla cake.',
     price: 6000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80&auto=format&fit=crop',
+    image: chocolateCake,
   },
   {
     id: 'chocolate-cake-bake',
@@ -1085,7 +1109,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Rich chocolate cake.',
     price: 7500,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80&auto=format&fit=crop',
+    image: chocolateCake,
   },
   {
     id: 'tomato-pizza-12',
@@ -1093,7 +1117,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Classic tomato pizza.',
     price: 14500,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80&auto=format&fit=crop',
+    image: tomatoePizza,
   },
   {
     id: 'tomato-pizza-14',
@@ -1101,7 +1125,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Classic tomato pizza.',
     price: 16000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80&auto=format&fit=crop',
+    image: tomatoePizza,
   },
   {
     id: 'tomato-pizza-16',
@@ -1109,7 +1133,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Classic tomato pizza.',
     price: 18000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80&auto=format&fit=crop',
+    image: tomatoePizza,
   },
   {
     id: 'chicken-pizza-12',
@@ -1117,7 +1141,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Delicious chicken pizza.',
     price: 16000,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80&auto=format&fit=crop',
+    image: tomatoePizza,
   },
   {
     id: 'chicken-pizza-14',
@@ -1125,7 +1149,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Delicious chicken pizza.',
     price: 16500,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80&auto=format&fit=crop',
+    image: tomatoePizza,
   },
   {
     id: 'chicken-pizza-16',
@@ -1133,7 +1157,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Delicious chicken pizza.',
     price: 19500,
     category: 'drinks',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80&auto=format&fit=crop',
+    image: tomatoePizza,
   },
 
   // Breakfast
@@ -1167,7 +1191,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Creamy custard served with moimoi.',
     price: 8000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&q=80&auto=format&fit=crop',
+    image: custardMoimoi,
   },
   {
     id: 'toasted-bread-omelette-vegetables',
@@ -1175,7 +1199,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Toasted bread with omelette and fresh vegetables.',
     price: 10000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80&auto=format&fit=crop',
+    image: toastedBreadVeg,
   },
   {
     id: 'toasted-bread-omelette',
@@ -1183,7 +1207,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Toasted bread with omelette.',
     price: 10000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80&auto=format&fit=crop',
+    image: toastedBread,
   },
   {
     id: 'pancake-burger',
@@ -1191,7 +1215,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Pancake with chicken, omelette, lettuce, and burger sauce.',
     price: 12000,
     category: 'sauces-sides',
-    image: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=800&q=80&auto=format&fit=crop',
+    image: pancakeBurger,
   },
   {
     id: 'noodles-egg',
