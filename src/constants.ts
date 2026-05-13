@@ -820,7 +820,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Crispy golden fried yam strips, a perfect side for any meal.',
     price: 2000,
     category: 'sauces-sides',
-    image: yamFries,
+    image: friedYamSauce,
   },
   {
     id: 'yam-fries-only',
@@ -916,7 +916,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Delicious chicken wings in sweet sauce.',
     price: 11000,
     category: 'sauces-sides',
-    image: chickenPepper,
+    image: friedYamSauce,
   },
   {
     id: 'fried-potato-pepper-goat',
@@ -924,7 +924,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Fried potato served with spicy pepper goat meat sauce.',
     price: 8000,
     category: 'sauces-sides',
-    image: yamFries,
+    image: friedYamSauce,
   },
   {
     id: 'yam-egg-sauce',
@@ -932,7 +932,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Yam served with delicious egg sauce.',
     price: 5000,
     category: 'sauces-sides',
-    image: yamFries,
+    image: yamAndEgg,
   },
 
   // Drinks
@@ -976,7 +976,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Chocolate Cake',
     description: 'Rich chocolate cake topped with whipped cream.',
     price: 14500,
-    category: 'drinks',
+    category: 'desserts',
     image: chocolateCake,
   },
   {
@@ -984,7 +984,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Sponge Cake',
     description: 'Light and fluffy sponge cake topped with melted chocolate.',
     price: 14500,
-    category: 'drinks',
+    category: 'desserts',
     image: spongeCake,
   },
   {
@@ -992,7 +992,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Waffles Topped with Berries',
     description: 'Crispy waffles topped with fresh berries.',
     price: 10000,
-    category: 'drinks',
+    category: 'desserts',
     image: waffleBerries,
   },
   {
@@ -1000,7 +1000,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Granola Parfait',
     description: 'Healthy and delicious granola parfait.',
     price: 5000,
-    category: 'drinks',
+    category: 'desserts',
     image: parfait,
   },
   {
@@ -1008,7 +1008,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Cake Parfait',
     description: 'Delicious cake parfait.',
     price: 5000,
-    category: 'drinks',
+    category: 'desserts',
     image: parfait,
   },
 
@@ -1100,15 +1100,15 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Plain Vanilla Cake',
     description: 'Classic plain vanilla cake.',
     price: 6000,
-    category: 'drinks',
-    image: chocolateCake,
+    category: 'bakes-pizza',
+    image: vanillaCake,
   },
   {
     id: 'chocolate-cake-bake',
     name: 'Chocolate Cake',
     description: 'Rich chocolate cake.',
     price: 7500,
-    category: 'drinks',
+    category: 'bakes-pizza',
     image: chocolateCake,
   },
   {
@@ -1116,7 +1116,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Tomato Pizza (Size 12)',
     description: 'Classic tomato pizza.',
     price: 14500,
-    category: 'drinks',
+    category: 'bakes-pizza',
     image: tomatoePizza,
   },
   {
@@ -1124,7 +1124,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Tomato Pizza (Size 14)',
     description: 'Classic tomato pizza.',
     price: 16000,
-    category: 'drinks',
+    category: 'bakes-pizza',
     image: tomatoePizza,
   },
   {
@@ -1132,7 +1132,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Tomato Pizza (Size 16)',
     description: 'Classic tomato pizza.',
     price: 18000,
-    category: 'drinks',
+    category: 'bakes-pizza',
     image: tomatoePizza,
   },
   {
@@ -1140,7 +1140,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Chicken Pizza (Size 12)',
     description: 'Delicious chicken pizza.',
     price: 16000,
-    category: 'drinks',
+    category: 'bakes-pizza',
     image: tomatoePizza,
   },
   {
@@ -1148,7 +1148,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Chicken Pizza (Size 14)',
     description: 'Delicious chicken pizza.',
     price: 16500,
-    category: 'drinks',
+    category: 'bakes-pizza',
     image: tomatoePizza,
   },
   {
@@ -1156,7 +1156,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Chicken Pizza (Size 16)',
     description: 'Delicious chicken pizza.',
     price: 19500,
-    category: 'drinks',
+    category: 'bakes-pizza',
     image: tomatoePizza,
   },
 
@@ -1166,15 +1166,15 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Yam with Fish Sauce',
     description: 'Delicious yam served with fish sauce.',
     price: 8000,
-    category: 'sauces-sides',
-    image: yamFries,
+    category: 'breakfast',
+    image: yamAndEgg,
   },
   {
     id: 'plantain-scrambled-egg',
     name: 'Plantain with Scrambled Egg',
     description: 'Sweet plantain served with scrambled eggs.',
     price: 8000,
-    category: 'sauces-sides',
+    category: 'breakfast',
     image: plantain,
   },
   {
