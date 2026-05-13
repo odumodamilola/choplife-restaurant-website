@@ -237,20 +237,21 @@ export default function App() {
                         <p className="text-muted-foreground font-display text-xs lg:text-sm tracking-[0.3em] uppercase">Bold West African flavors, beautifully served.</p>
                      </div>
                      
-                     <div className="flex flex-col sm:flex-row gap-10 lg:gap-20">
-                        <a href="mailto:choplifebistrooo@gmail.com" className="font-display text-[10px] lg:text-[12px] font-bold tracking-[0.4em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-4 group">
-                          <Mail size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                          choplifebistrooo@gmail.com
+                     <div className="flex flex-col sm:flex-row gap-6 lg:gap-12 items-start sm:items-center">
+                        <a href="mailto:choplifebistrooo@gmail.com" className="font-display text-[9px] lg:text-[11px] font-bold tracking-[0.3em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-3 group">
+                          <Mail size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                          <span className="hidden sm:inline">choplifebistrooo@gmail.com</span>
+                          <span className="sm:hidden">Email</span>
                         </a>
                         {[
                           { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/choplifebristoo' },
                           { name: 'TikTok', icon: Music, url: 'https://tiktok.com/@choplifebristoo' },
                           { name: 'Facebook', icon: Facebook, url: '#' }
                         ].map(social => (
-                          <a key={social.name} href={social.url} className="font-display text-[10px] lg:text-[12px] font-bold tracking-[0.4em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-4 group">
-                            <social.icon size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                          <a key={social.name} href={social.url} className="font-display text-[9px] lg:text-[11px] font-bold tracking-[0.3em] uppercase text-muted hover:text-primary transition-colors flex items-center gap-3 group">
+                            <social.icon size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                             {social.name}
-                            <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <ExternalLink size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                           </a>
                         ))}
                      </div>
