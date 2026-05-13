@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { HashRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -20,7 +20,7 @@ function Home() {
 
   useEffect(() => {
     if (selectedItem) {
-      navigate(`#/food/${selectedItem.id}`);
+      navigate(`/food/${selectedItem.id}`);
     }
   }, [selectedItem, navigate]);
 
@@ -66,7 +66,7 @@ function Home() {
     >
       <Cursor />
       <div className="noise-overlay" />
-      <Navbar activeCategory={activeCategory} setView={() => navigate('#/')} />
+      <Navbar activeCategory={activeCategory} setView={() => navigate('/')} />
       
       <AnimatePresence mode="wait">
         {selectedItem ? (
@@ -75,7 +75,7 @@ function Home() {
             item={selectedItem} 
             onBack={() => {
               setSelectedItem(null);
-              navigate('#/');
+              navigate('/');
             }} 
           />
         ) : (
@@ -158,7 +158,7 @@ function Home() {
                     </p>
                     
                     <button 
-                      onClick={() => navigate('#/details')}
+                      onClick={() => navigate('/details')}
                       className="group flex items-center gap-4 text-primary font-display text-[11px] font-bold tracking-[0.2em] uppercase mb-12 hover:gap-6 transition-all"
                     >
                       Our Philosophy
@@ -278,7 +278,7 @@ function Home() {
                      <div className="flex gap-8 text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">
                         <a href="#" className="hover:text-foreground">Privacy</a>
                         <a href="#" className="hover:text-foreground">Terms</a>
-                        <a href="#" className="hover:text-foreground" onClick={(e) => { e.preventDefault(); navigate('#/details'); }}>Our Standards</a>
+                        <a href="#" className="hover:text-foreground" onClick={(e) => { e.preventDefault(); navigate('/details'); }}>Our Standards</a>
                      </div>
                   </div>
                </div>
@@ -294,12 +294,12 @@ function FoodDetailsRoute() {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Extract food ID from hash like #/food/egusi
-  const foodId = location.hash.replace('#/food/', '') || '';
+  // Extract food ID from pathname like /food/egusi
+  const foodId = location.pathname.replace('/food/', '') || '';
   const item = MENU_ITEMS.find(i => i.id === foodId);
 
   if (!item) {
-    navigate('#/');
+    navigate('/');
     return null;
   }
 
@@ -307,21 +307,21 @@ function FoodDetailsRoute() {
     <FoodDetailsPage 
       key="food-details"
       item={item} 
-      onBack={() => navigate('#/')} 
+      onBack={() => navigate('/')} 
     />
   );
 }
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="relative">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/food/:id" element={<FoodDetailsRoute />} />
-          <Route path="/details" element={<DetailsPage onBack={() => window.location.hash = '#/'} />} />
+          <Route path="/details" element={<DetailsPage onBack={() => window.history.back()} />} />
         </Routes>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
