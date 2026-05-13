@@ -131,7 +131,7 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
             >
               {/* Search Input */}
               <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 border-b border-border">
-                <SearchIcon size={18} sm:size={20} className="text-muted-foreground flex-shrink-0" />
+                <SearchIcon size={18} className="text-muted-foreground flex-shrink-0" />
                 <input
                   ref={inputRef}
                   type="text"
@@ -147,7 +147,7 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
                     className="p-1 sm:p-2 hover:bg-surface rounded-full transition-colors flex-shrink-0"
                     aria-label="Clear search"
                   >
-                    <X size={14} sm:size={16} className="text-muted-foreground" />
+                    <X size={14} className="text-muted-foreground" />
                   </button>
                 )}
                 <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono text-muted-foreground bg-surface border border-border rounded flex-shrink-0">
@@ -159,7 +159,7 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
               <div className="max-h-[50vh] sm:max-h-[60vh] overflow-y-auto" ref={resultsContainerRef}>
                 {!query && (
                   <div className="p-6 sm:p-8 text-center">
-                    <SearchIcon size={36} sm:size={48} className="mx-auto text-muted-foreground/30 mb-3 sm:mb-4" />
+                    <SearchIcon size={36} className="mx-auto text-muted-foreground/30 mb-3 sm:mb-4" />
                     <p className="text-muted-foreground text-sm sm:text-base">
                       Start typing to search our menu
                     </p>
@@ -171,7 +171,7 @@ export default function SearchModal({ menuItems, onSelectItem, isOpen, onOpenCha
 
                 {query && results.length === 0 && (
                   <div className="p-6 sm:p-8 text-center">
-                    <X size={36} sm:size={48} className="mx-auto text-muted-foreground/30 mb-3 sm:mb-4" />
+                    <X size={36} className="mx-auto text-muted-foreground/30 mb-3 sm:mb-4" />
                     <p className="text-muted-foreground text-sm sm:text-base">
                       No menu items found for "{query}"
                     </p>
