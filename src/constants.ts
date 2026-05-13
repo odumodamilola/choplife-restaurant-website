@@ -908,7 +908,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Savory grilled turkey served with crispy golden chips.',
     price: 9500,
     category: 'sauces-sides',
-    image: grilledTurkeyChips,
+    image: chickenPepper,
   },
   {
     id: 'chicken-wings-sweet-sauce',
@@ -1183,7 +1183,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Yam served with scrambled eggs.',
     price: 8000,
     category: 'sauces-sides',
-    image: yamFries,
+    image: yamAndEgg,
   },
   {
     id: 'custard-moimoi',
